@@ -1,0 +1,21 @@
+{
+    "id": "topic-001",
+    "title": "业主委员会津贴标准与权责分配讨论",
+    "author": {
+        "name": "包**",
+        "avatar": "https://randomuser.me/api/portraits/men/32.jpg"
+    },
+    "status": "active",
+    "timestamp": "2025-05-21 09:00",
+    "description": {
+        "background": "业委会工作量大，是否需要设立津贴激励机制",
+        "coreIssue": "津贴的象征意义与实际作用如何平衡",
+        "controversy": "阳光共治模式是否比津贴制度更有效",
+        "keyQuestion": "如何建立有效的监督机制确保权责分配",
+        "expectedResult": "形成业主共识，制定可行的治理方案"
+    },
+    "aiPolish": {
+        "enabled": true,
+        "message": "该文本由AI润色，你也来试试吧！"
+    }
+}

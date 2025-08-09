@@ -1,0 +1,31 @@
+<!-- Single Comment Item Template -->
+<div class="comment-item" data-comment-id="{{id}}">
+  <div class="comment-content">
+    <div class="comment-header">
+      <img src="{{author.avatar}}" class="comment-avatar" alt="头像">
+      <span class="comment-author">{{author.name}}</span>
+      <span class="comment-time">{{timestamp}}</span>
+      {{typeBadge}}
+    </div>
+    <div class="comment-text">{{content}}</div>
+    <div class="comment-actions">
+      <span class="comment-action" onclick="CommentsController.toggleLike(this)">
+        <img src="assets/lficon/thumbs-up-outline.svg" class="comment-action-icon" alt="点赞">
+        <span>{{likes}}</span>
+      </span>
+      <span class="comment-action" onclick="CommentsController.toggleDislike(this)">
+        <img src="assets/lficon/thumbs-up-outline.svg" class="comment-action-icon-rotated" alt="点踩">
+        <span>{{dislikes}}</span>
+      </span>
+      <span class="comment-action" onclick="CommentsController.replyComment(this)">
+        <img src="assets/lficon/chat-24-outline.svg" class="comment-action-icon" alt="回复">
+        <span>回复</span>
+      </span>
+      <span class="comment-action" onclick="CommentsController.sendFlower(this)">
+        <img src="assets/lficon/flower.svg" class="comment-action-icon" alt="送花">
+        <span>送花</span>
+      </span>
+    </div>
+    {{repliesSection}}
+  </div>
+</div>

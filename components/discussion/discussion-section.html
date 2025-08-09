@@ -1,0 +1,60 @@
+<!-- 讨论区 -->
+<div class="discussion-section">
+  <div class="discussion-section-header">
+    <div class="discussion-title-container">
+      <span>讨论区</span>
+    </div>
+    
+    <!-- 去议事按钮 -->
+    <div class="discussion-actions-container">
+      <button onclick="DiscussionController.goToTopic()" class="discussion-btn">
+        <img src="assets/lficon/messages.svg" alt="消息">
+        <span>去议事</span>
+      </button>
+    </div>
+  </div>
+  
+  <!-- 详细评论区 - 与AI助手面板切换显示 -->
+  <div id="detailed-comments-section" class="comments-section-container">
+
+    <!-- 提示信息和排序选择器 -->
+    <div class="comment-sort-container">
+      <!-- Tips提示 -->
+      <div class="comment-tips">
+        讨论不聚焦？去议事吧！
+      </div>
+      
+      <!-- 排序选择器 -->
+      <div class="sort-controls-container">
+        <div class="tabs-root tabs-container" data-orientation="horizontal">
+          <div class="tabs-list tabs-list-custom" role="tablist" aria-orientation="horizontal">
+            <button id="sort-hot-tab" onclick="DiscussionController.sortComments('hot')" class="tabs-trigger active sort-tab-btn" role="tab" aria-selected="true" data-state="active" value="hot" title="按热门排序">
+              <i class="fas fa-fire sort-tab-icon"></i>
+            </button>
+            <div class="time-sort-group">
+              <button id="sort-time-tab" class="tabs-trigger sort-tab-btn" role="tab" aria-selected="false" data-state="inactive" value="time-desc" title="按时间排序">
+                <i class="fas fa-clock sort-tab-icon"></i>
+              </button>
+              <div class="time-sort-arrows">
+                <button id="sort-time-desc" onclick="DiscussionController.sortComments('time-desc')" class="tabs-trigger time-arrow-btn" role="tab" aria-selected="false" data-state="inactive" title="时间倒序（最新在前）">
+                  <i class="fas fa-caret-up time-arrow-icon"></i>
+                </button>
+                <button id="sort-time-asc" onclick="DiscussionController.sortComments('time-asc')" class="tabs-trigger time-arrow-btn" role="tab" aria-selected="false" data-state="inactive" title="时间正序（最旧在前）">
+                  <i class="fas fa-caret-down time-arrow-icon"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 评论列表内容 -->
+    <div id="comments-list">
+      <!-- 评论将从JSON数据动态加载 -->
+      <div class="loading-placeholder">
+        <p>正在加载评论...</p>
+      </div>
+    </div>
+  </div>
+</div>

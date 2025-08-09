@@ -1,0 +1,2134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>议事详情 - 事件脉络追踪</title>
+  
+  <!-- 强制禁用缓存 - 开发环境 -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="-1">
+  <meta http-equiv="Last-Modified" content="0">
+  <meta http-equiv="If-Modified-Since" content="0">
+  
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <script>
+    // 强制刷新CSS文件，避免任何形式的缓存
+    (function() {
+      const timestamp = Date.now() + Math.random();
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'assets/styles.css?v=' + timestamp + '&nocache=' + Math.floor(Math.random() * 10000);
+      link.type = 'text/css';
+      document.head.appendChild(link);
+      
+      // 移除可能存在的旧CSS链接
+      const oldLinks = document.querySelectorAll('link[href*="assets/styles.css"]');
+      oldLinks.forEach(function(oldLink) {
+        if (oldLink !== link) {
+          oldLink.remove();
+        }
+      });
+    })();
+  </script>
+
+</head>
+<body>
+  <!-- TDesign风格导航栏 - 遵循微信小程序设计规范 -->
+  <div class="navbar">
+    <div class="navbar-back" onclick="window.history.back()" role="button" tabindex="0" aria-label="返回上一页">
+      <i class="fas fa-chevron-left" style="font-size: 16px;"></i>
+    </div>
+    <div class="navbar-title td-text-primary">议事详情</div>
+    <div class="navbar-capsule">
+      <button class="capsule-btn" onclick="showMoreOptions()" title="更多选项" aria-label="显示更多选项">
+        <i class="fas fa-ellipsis-h" style="font-size: 14px;"></i>
+      </button>
+      <div class="capsule-divider"></div>
+      <button class="capsule-btn" onclick="closeApp()" title="关闭页面" aria-label="关闭当前页面">
+        <i class="fas fa-times" style="font-size: 14px;"></i>
+      </button>
+    </div>
+  </div>
+  
+  <div class="content">
+    <!-- 议题信息区 -->
+    <div class="section-card">
+      <!-- 主标题区域 - H1级别 -->
+      <div class="section-title" style="font-size: 22px; font-weight: 700; line-height: 1.25; display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; color: #1F2937;">
+        <span style="flex: 1; word-break: break-word;">业主委员会津贴标准与权责分配讨论</span>
+        <span class="topic-status status-active" style="flex-shrink: 0; font-size: 12px; font-weight: 600;">进行中</span>
+      </div>
+      
+      <!-- 元信息区域 - 次要信息级别 -->
+      <div class="meta-info" style="margin-bottom: 16px; font-size: 14px; color: #6B7280;">
+        <div class="meta-item" style="display: flex; align-items: center; gap: 8px; font-weight: 500;">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="发起人头像" style="width: 24px; height: 24px; border-radius: 50%; object-fit: cover;">
+          <span style="color: #374151;">包**</span>
+        </div>
+        <div class="meta-item" style="font-weight: 400;">
+          <i class="fas fa-clock" style="margin-right: 4px;"></i>
+          <span>2025-05-21 09:00</span>
+        </div>
+      </div>
+    
+      
+      <!-- 间距分隔 -->
+      <div style="margin-bottom: 24px;"></div>
+      
+      <!-- 议题详细信息 - H3级别内容区域 -->
+      <div style="font-size: 15px; color: var(--text-primary); line-height: 1.6; margin-bottom: 16px; font-family: 'PingFang SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+        <div style="line-height: 1.6; margin-bottom: 4px;"><span style="font-weight: 600; color: #1F2937; font-size: 15px;">讨论背景：</span><span style="color: #374151; font-size: 15px;">业委会工作量大，是否需要设立津贴激励机制</span></div>
+        <div style="line-height: 1.6; margin-bottom: 4px;"><span style="font-weight: 600; color: #1F2937; font-size: 15px;">核心议题：</span><span style="color: #374151; font-size: 15px;">津贴的象征意义与实际作用如何平衡</span></div>
+        <div style="line-height: 1.6; margin-bottom: 4px;"><span style="font-weight: 600; color: #1F2937; font-size: 15px;">争议焦点：</span><span style="color: #374151; font-size: 15px;">阳光共治模式是否比津贴制度更有效</span></div>
+        <div style="line-height: 1.6; margin-bottom: 4px;"><span style="font-weight: 600; color: #1F2937; font-size: 15px;">关键问题：</span><span style="color: #374151; font-size: 15px;">如何建立有效的监督机制确保权责分配</span></div>
+        <div style="line-height: 1.6; margin-bottom: 0;"><span style="font-weight: 600; color: #1F2937; font-size: 15px;">期待结果：</span><span style="color: #374151; font-size: 15px;">形成业主共识，制定可行的治理方案</span></div>
+      </div>
+      
+      <!-- AI润色提示卡片 -->
+      <!-- AI润色提示卡片 -->
+         <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 12px; padding: 8px 12px; margin-bottom: 14px; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06); position: relative;">
+            <!-- 左上角三角形气泡指示器 -->
+            <div style="position: absolute; top: -8px; left: 20px; width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom: 8px solid #E5E7EB;"></div>
+            <div style="position: absolute; top: -7px; left: 20px; width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom: 8px solid #FFFFFF;"></div>
+            <div style="display: flex; align-items: center; justify-content: center; width: 16px; height: 16px; flex-shrink: 0;">
+               <img src="assets/lficon/magicpen.svg" style="width: 14px; height: 14px;" alt="魔法笔">
+            </div>
+           <div style="display: flex; align-items: center; gap: 2px;">
+             <span style="color: #374151; font-size: 12px; font-weight: 400; line-height: 1.3; font-family: 'PingFang SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">该文本由AI润色，</span>
+             <span style="color: #3B82F6; font-size: 12px; font-weight: 500; cursor: pointer; text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s ease; font-family: 'PingFang SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin-left: 2px;" onclick="alert('功能开发中，敬请期待！')" onmouseover="this.style.borderBottomColor='#3B82F6'; this.style.color='#1D4ED8'" onmouseout="this.style.borderBottomColor='transparent'; this.style.color='#3B82F6'">你也来试试吧！</span>
+           </div>
+         </div>
+      
+
+      
+      <!-- 相关附件 - H3级别子标题 -->
+      <div style="margin-top: 12px; margin-bottom: 0px;">
+        <div style="font-weight: 600; color: #1F2937; font-size: 14px; font-family: 'PingFang SC', -apple-system, BlinkMacSystemFont, sans-serif; margin-bottom: 10px;">相关附件</div>
+        <div id="figma-attachment-list" class="attachment-list"></div>
+      </div>
+      
+
+    </div>
+    
+
+
+
+    
+    <!-- 讨论区 -->
+    <div class="discussion-section">
+      <div class="section-title" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 20px 16px 8px 16px; margin: 0; background: linear-gradient(135deg, #FFFFFF 0%, #ffffff 100%); border: 1px solid #E2E8F0; border-bottom: none; border-left: none; border-right: none;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span>讨论区</span>
+        </div>
+        
+        <!-- 去议事按钮 -->
+        <div style="display: flex; align-items: center;">
+          <button onclick="window.location.href='topic-detail.html'" 
+                  style="background: #0052D9; 
+                         color: white; 
+                         border: none;
+                         border-radius: 18px; 
+                         padding: 0 16px; 
+                         height: 36px;
+                         font-size: 14px; 
+                         font-weight: 500; 
+                         cursor: pointer; 
+                         transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); 
+                         display: flex; 
+                         align-items: center; 
+                         gap: 8px;
+                         box-shadow: 0 2px 6px rgba(0, 82, 217, 0.2);
+                         position: relative;
+                         overflow: hidden;"
+                  onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0, 82, 217, 0.3)'; this.style.background='#003BA8'"
+                  onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 6px rgba(0, 82, 217, 0.2)'; this.style.background='#0052D9'"
+                  onmousedown="this.style.transform='translateY(0) scale(0.98)'; this.style.boxShadow='0 1px 3px rgba(0, 82, 217, 0.2)'"
+                  onmouseup="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0, 82, 217, 0.3)'">
+            <img src="assets/lficon/messages.svg" style="width: 16px; height: 16px; filter: brightness(0) invert(1);" alt="消息">
+            <span>去议事</span>
+          </button>
+        </div>
+      </div>
+      
+      <!-- 详细评论区 - 与AI助手面板切换显示 -->
+      <div id="detailed-comments-section" style="display: block; background: white; border-radius: 0 0 12px 12px; padding: 0px; margin: 0; border: 1px solid #ffffff; border-top: none; border-left: none; border-right: none;">
+
+        <!-- 提示信息和排序选择器 -->
+        <div class="comment-sort-container" style="padding: 0px 16px 8px; background: #ffffff; border-bottom: 1px solid #E2E8F0; display: flex; align-items: center; justify-content: space-between;">
+          <!-- Tips提示 -->
+          <div style="color: #6B7280; font-size: 12px; font-weight: 400;">
+            讨论不聚焦？去议事吧！
+          </div>
+          
+          <!-- 排序选择器 -->
+          <div style="display: flex; align-items: center;">
+          <div class="tabs-root" data-orientation="horizontal" style="margin: 0;">
+            <div class="tabs-list" role="tablist" aria-orientation="horizontal" style="height: 24px; padding: 1px; gap: 1px; display: flex; justify-content: flex-end; align-items: center;">
+              <button id="sort-hot-tab" onclick="sortComments('hot')" class="tabs-trigger active" role="tab" aria-selected="true" data-state="active" value="hot" style="padding: 5px; font-size: 10px; min-width: auto; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center;" title="按热门排序">
+                <i class="fas fa-fire" style="font-size: 11px;"></i>
+              </button>
+              <div style="display: flex; align-items: center; gap: 2px;">
+                <button id="sort-time-tab" class="tabs-trigger" role="tab" aria-selected="false" data-state="inactive" value="time-desc" style="padding: 5px; font-size: 10px; min-width: auto; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center;" title="按时间排序">
+                  <i class="fas fa-clock" style="font-size: 11px;"></i>
+                </button>
+                <div class="time-sort-arrows" style="display: flex; flex-direction: column; gap: 1px;">
+                  <button id="sort-time-desc" onclick="sortComments('time-desc')" class="tabs-trigger time-arrow-btn" role="tab" aria-selected="false" data-state="inactive" style="padding: 1px 3px; font-size: 7px; min-width: auto; height: 10px;" title="时间倒序（最新在前）">
+                    <i class="fas fa-caret-up" style="font-size: 7px;"></i>
+                  </button>
+                  <button id="sort-time-asc" onclick="sortComments('time-asc')" class="tabs-trigger time-arrow-btn" role="tab" aria-selected="false" data-state="inactive" style="padding: 1px 3px; font-size: 7px; min-width: auto; height: 10px;" title="时间正序（最旧在前）">
+                    <i class="fas fa-caret-down" style="font-size: 7px;"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+
+        <!-- 评论列表内容 -->
+        <div id="comments-list">
+        <!-- 主要发起人评论 -->
+        <!-- 新增评论 -->
+        <div class="comment-item">
+          <div class="comment-content">
+            <div class="comment-header">
+              <img src="assets/lficon/avatar-male-1.svg" class="comment-avatar" alt="头像">
+              <span class="comment-author">张**</span>
+              <span class="comment-time">2025-05-21 18:20</span>
+            </div>
+            <div class="comment-text">
+              津贴制度的费用会不会太高？建议先试点一年看看效果，如果业委会工作质量确实提高了，再考虑长期实施。
+            </div>
+            <div class="comment-actions">
+              <span class="comment-action" onclick="toggleLike(this)">
+                <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px;" alt="点赞">
+                <span>3</span>
+              </span>
+              <span class="comment-action" onclick="toggleDislike(this)">
+                <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px; transform: rotate(180deg);" alt="点踩">
+                <span>1</span>
+              </span>
+              <span class="comment-action" onclick="replyComment(this)">
+                <img src="assets/lficon/chat-24-outline.svg" style="width: 14px; height: 14px;" alt="回复">
+                <span>回复</span>
+              </span>
+              <span class="comment-action" onclick="sendFlower(this)">
+                <img src="assets/lficon/flower.svg" style="width: 14px; height: 14px;" alt="送花">
+                <span>送花</span>
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="comment-item">
+          <div class="comment-content">
+            <div class="comment-header">
+              <img src="assets/lficon/avatar-elder-male.svg" class="comment-avatar" alt="头像">
+              <span class="comment-author">赵**</span>
+              <span class="comment-time">2025-05-21 16:45</span>
+            </div>
+            <div class="comment-text">
+              业委会工作确实需要专业知识，特别是财务管理和法律方面。如果给津贴，是否也应该对业委会成员的专业能力有一定要求？
+            </div>
+            <div class="comment-actions">
+              <span class="comment-action" onclick="toggleLike(this)">
+                <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px;" alt="点赞">
+                <span>8</span>
+              </span>
+              <span class="comment-action" onclick="toggleDislike(this)">
+                <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px; transform: rotate(180deg);" alt="点踩">
+                <span>0</span>
+              </span>
+              <span class="comment-action" onclick="replyComment(this)">
+                <img src="assets/lficon/chat-24-outline.svg" style="width: 14px; height: 14px;" alt="回复">
+                <span>回复</span>
+              </span>
+              <span class="comment-action" onclick="sendFlower(this)">
+                <img src="assets/lficon/flower.svg" style="width: 14px; height: 14px;" alt="送花">
+                <span>送花</span>
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="comment-item">
+          <div class="comment-content">
+            <div class="comment-header">
+              <img src="assets/lficon/avatar-female-1.svg" class="comment-avatar" alt="头像">
+              <span class="comment-author">孙**</span>
+              <span class="comment-time">2025-05-21 17:15</span>
+            </div>
+            <div class="comment-text">
+              透明度很重要！建议业委会的所有决策和财务支出都要公开，让业主能够随时查看。这样既能监督业委会，也能增加业主的信任度。
+            </div>
+            <div class="comment-actions">
+              <span class="comment-action" onclick="toggleLike(this)">
+                <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px;" alt="点赞">
+                <span>15</span>
+              </span>
+              <span class="comment-action" onclick="toggleDislike(this)">
+                <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px; transform: rotate(180deg);" alt="点踩">
+                <span>0</span>
+              </span>
+              <span class="comment-action" onclick="replyComment(this)">
+                <img src="assets/lficon/chat-24-outline.svg" style="width: 14px; height: 14px;" alt="回复">
+                <span>回复</span>
+              </span>
+              <span class="comment-action" onclick="sendFlower(this)">
+                <img src="assets/lficon/flower.svg" style="width: 14px; height: 14px;" alt="送花">
+                <span>送花</span>
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="comment-item">
+          <div class="comment-content">
+            <div class="comment-header">
+              <img src="assets/lficon/avatar-young-male.svg" class="comment-avatar" alt="头像">
+              <span class="comment-author">周**</span>
+              <span class="comment-time">2025-05-21 19:30</span>
+            </div>
+            <div class="comment-text">
+              我觉得可以先在我们小区试点这个津贴制度，看看实际效果如何。如果确实能提高业委会的工作效率和质量，再推广到其他小区。
+            </div>
+            <div class="comment-actions">
+              <span class="comment-action" onclick="toggleLike(this)">
+                <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px;" alt="点赞">
+                <span>6</span>
+              </span>
+              <span class="comment-action" onclick="toggleDislike(this)">
+                <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px; transform: rotate(180deg);" alt="点踩">
+                <span>2</span>
+              </span>
+              <span class="comment-action" onclick="replyComment(this)">
+                <img src="assets/lficon/chat-24-outline.svg" style="width: 14px; height: 14px;" alt="回复">
+                <span>回复</span>
+              </span>
+              <span class="comment-action" onclick="sendFlower(this)">
+                <img src="assets/lficon/flower.svg" style="width: 14px; height: 14px;" alt="送花">
+                <span>送花</span>
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="comment-item">
+          <div class="comment-content">
+            <div class="comment-header">
+              <img src="assets/lficon/avatar-female-2.svg" class="comment-avatar" alt="头像">
+              <span class="comment-author">吴**</span>
+              <span class="comment-time">2025-05-21 20:10</span>
+            </div>
+            <div class="comment-text">
+              津贴制度需要有法律依据吗？我担心如果没有明确的法律支持，可能会引起争议。建议先咨询一下相关的法律专家。
+            </div>
+            <div class="comment-actions">
+              <span class="comment-action" onclick="toggleLike(this)">
+                <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px;" alt="点赞">
+                <span>9</span>
+              </span>
+              <span class="comment-action" onclick="toggleDislike(this)">
+                <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px; transform: rotate(180deg);" alt="点踩">
+                <span>1</span>
+              </span>
+              <span class="comment-action" onclick="replyComment(this)">
+                <img src="assets/lficon/chat-24-outline.svg" style="width: 14px; height: 14px;" alt="回复">
+                <span>回复</span>
+              </span>
+              <span class="comment-action" onclick="sendFlower(this)">
+                <img src="assets/lficon/flower.svg" style="width: 14px; height: 14px;" alt="送花">
+                <span>送花</span>
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="comment-item">
+          <div class="comment-content">
+            <div class="comment-header">
+              <img src="assets/lficon/avatar-male-2.svg" class="comment-avatar" alt="头像">
+              <span class="comment-author">包**</span>
+              <span class="comment-time">2025-05-21 09:01</span>
+            </div>
+            <div class="comment-text">
+              何老师的视频看过，今日发言报个到。想探讨一个问题，业委会属于自治组织，居委会或村委会也属于自治组织，居委会委员可以拿补贴，业委会委员不拿补贴，这个感觉有点不符人性。上海市的业主大会议事规则示范文本有关于补贴一栏的描述，那么这一栏怎么写。
+            </div>
+            <div class="comment-actions">
+              <span class="comment-action" onclick="toggleLike(this)">
+                <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px;" alt="点赞">
+                <span>15</span>
+              </span>
+              <span class="comment-action" onclick="toggleDislike(this)">
+                <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px; transform: rotate(180deg);" alt="点踩">
+                <span>2</span>
+              </span>
+              <span class="comment-action" onclick="replyComment(this)">
+                <img src="assets/lficon/chat-24-outline.svg" style="width: 14px; height: 14px;" alt="回复">
+                <span>回复</span>
+              </span>
+              <span class="comment-action" onclick="sendFlower(this)">
+                <img src="assets/lficon/flower.svg" style="width: 14px; height: 14px;" alt="送花">
+                <span>送花</span>
+              </span>
+            </div>
+          </div>
+        </div>
+         <!-- 高赞热门评论 -->
+      <div class="comment-item hot-comment" style="border-left: 3px solid #FF6B35; background: linear-gradient(135deg, #FFF5F0 0%, #FFFFFF 100%);">
+        <div class="comment-content">
+          <div class="comment-header">
+            <img src="assets/lficon/avatar-young-female.svg" class="comment-avatar" alt="头像">
+            <span class="comment-author">何**</span>
+            <span class="comment-time">2025-05-21 11:20</span>
+            <span style="background: #FF6B35; color: white; padding: 2px 6px; border-radius: 10px; font-size: 10px; margin-left: 8px;">🔥 热门</span>
+          </div>
+          <div class="comment-text">
+            不给补贴本身就是想筛选对物质和权力没有诉求的业主来保管权力。阳光共治是让任何业主只要想要监督都有权来监督，而不是用少数人监督少数人。想让人使用权力和想找人保管权力是两套不同的逻辑。
+          </div>
+          <div class="comment-actions">
+            <span class="comment-action" onclick="toggleLike(this)">
+              <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px;" alt="点赞">
+              <span style="color: #FF6B35; font-weight: 600;">22</span>
+            </span>
+            <span class="comment-action" onclick="toggleDislike(this)">
+              <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px; transform: rotate(180deg);" alt="点踩">
+              <span>3</span>
+            </span>
+            <span class="comment-action" onclick="replyComment(this)">
+              <img src="assets/lficon/chat-24-outline.svg" style="width: 14px; height: 14px;" alt="回复">
+              <span>回复</span>
+            </span>
+            <span class="comment-action" onclick="sendFlower(this)">
+            <img src="assets/lficon/flower.svg" style="width: 14px; height: 14px;" alt="送花">
+            <span>送花</span>
+          </span>
+          </div>
+          
+          <!-- 楼中楼回复 -->
+          <div class="comment-replies">
+            <div class="comment-item" style="margin-bottom: 0;">
+              <div class="comment-content">
+                <div class="comment-header">
+                  <img src="assets/lficon/avatar-male-1.svg" class="comment-avatar" style="width: 28px; height: 28px;" alt="头像">
+                  <span class="comment-author">元**</span>
+                  <span class="comment-time">2025-05-21 11:35</span>
+                </div>
+                <div class="comment-text">
+                  回复<span class="mention">@何**</span> 阳光共治确实是个好思路，让更多业主参与监督，这样可以避免权力集中的问题。
+                </div>
+                <div class="comment-actions">
+                  <span class="comment-action" onclick="toggleLike(this)">
+                    <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px;" alt="点赞">
+                    <span>7</span>
+                  </span>
+                  <span class="comment-action" onclick="toggleDislike(this)">
+                    <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px; transform: rotate(180deg);" alt="点踩">
+                    <span>点踩</span>
+                  </span>
+                  <span class="comment-action" onclick="replyComment(this)">
+                    <img src="assets/lficon/chat-24-outline.svg" style="width: 14px; height: 14px;" alt="回复">
+                    <span>回复</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="comment-item hidden-reply" style="margin-bottom: 0; display: none;">
+              <div class="comment-content">
+                <div class="comment-header">
+                  <img src="assets/lficon/avatar-female-1.svg" class="comment-avatar" style="width: 28px; height: 28px;" alt="头像">
+                  <span class="comment-author">鱼**</span>
+                  <span class="comment-time">2025-05-21 12:05</span>
+                </div>
+                <div class="comment-text">
+                  回复<span class="mention">@何**</span> 现在的业委会确实需要更多监督，阳光共治可以让决策过程更透明，避免暗箱操作。
+                </div>
+                <div class="comment-actions">
+                  <span class="comment-action" onclick="toggleLike(this)">
+                    <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px;" alt="点赞">
+                    <span>12</span>
+                  </span>
+                  <span class="comment-action" onclick="toggleDislike(this)">
+                    <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px; transform: rotate(180deg);" alt="点踩">
+                    <span>点踩</span>
+                  </span>
+                  <span class="comment-action" onclick="replyComment(this)">
+                    <img src="assets/lficon/chat-24-outline.svg" style="width: 14px; height: 14px;" alt="回复">
+                    <span>回复</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 展开按钮 -->
+             <div class="expand-replies-btn" onclick="toggleReplies(this)">
+                <span class="expand-text">展开1条回复</span>
+                <img src="assets/lficon/triangle-down.svg" class="expand-icon" style="width: 12px; height: 12px; margin-left: 4px;" alt="展开">
+              </div>
+          </div>
+        </div>
+      </div>
+        <!-- 高质量评论 -->
+        <div class="comment-item" style="border-left: 3px solid #10B981; background: linear-gradient(135deg, #F0FDF4 0%, #FFFFFF 100%);">
+          <div class="comment-content">
+            <div class="comment-header">
+              <img src="assets/lficon/avatar-elder-male.svg" class="comment-avatar" alt="头像">
+              <span class="comment-author">章**</span>
+              <span class="comment-time">2025-05-21 15:30</span>
+              <span style="background: #10B981; color: white; padding: 2px 6px; border-radius: 10px; font-size: 10px; margin-left: 8px;">💡 优质</span>
+            </div>
+            <div class="comment-text">
+              阳光共治听起来很理想，但实际操作中可能会遇到问题。比如业主参与度不高、专业知识不足等。建议先从简单的监督开始，逐步完善制度。津贴问题可以作为试点，看看效果如何。
+            </div>
+            <div class="comment-actions">
+              <span class="comment-action" onclick="toggleLike(this)">
+                <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px;" alt="点赞">
+                <span style="color: #10B981; font-weight: 600;">18</span>
+              </span>
+              <span class="comment-action" onclick="toggleDislike(this)">
+                <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px; transform: rotate(180deg);" alt="点踩">
+                <span>0</span>
+              </span>
+              <span class="comment-action" onclick="replyComment(this)">
+                <img src="assets/lficon/chat-24-outline.svg" style="width: 14px; height: 14px;" alt="回复">
+                <span>回复</span>
+              </span>
+              <span class="comment-action" onclick="sendFlower(this)">
+                <img src="assets/lficon/flower.svg" style="width: 14px; height: 14px;" alt="送花">
+                <span>送花</span>
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="comment-item">
+          <div class="comment-content">
+            <div class="comment-header">
+              <img src="assets/lficon/avatar-young-male.svg" class="comment-avatar" alt="头像">
+              <span class="comment-author">李**</span>
+              <span class="comment-time">2025-05-21 16:10</span>
+            </div>
+            <div class="comment-text">
+              回复<span class="mention">@章**</span> 确实，理想和现实总有差距。不过可以先从津贴制度开始试点，看看业主的参与度如何。
+            </div>
+            <div class="comment-actions">
+              <span class="comment-action" onclick="toggleLike(this)">
+                <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px;" alt="点赞">
+                <span>5</span>
+              </span>
+              <span class="comment-action" onclick="toggleDislike(this)">
+                <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px; transform: rotate(180deg);" alt="点踩">
+                <span>点踩</span>
+              </span>
+              <span class="comment-action" onclick="replyComment(this)">
+                <img src="assets/lficon/chat-24-outline.svg" style="width: 14px; height: 14px;" alt="回复">
+                <span>回复</span>
+              </span>
+              <span class="comment-action" onclick="sendFlower(this)">
+                <img src="assets/lficon/flower.svg" style="width: 14px; height: 14px;" alt="送花">
+                <span>送花</span>
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 争议评论 -->
+        <div class="comment-item" style="border-left: 3px solid #F59E0B; background: linear-gradient(135deg, #FFFBEB 0%, #FFFFFF 100%);">
+          <div class="comment-content">
+            <div class="comment-header">
+              <img src="assets/lficon/avatar-male-2.svg" class="comment-avatar" alt="头像">
+              <span class="comment-author">王**</span>
+              <span class="comment-time">2025-05-21 16:45</span>
+              <span style="background: #F59E0B; color: white; padding: 2px 6px; border-radius: 10px; font-size: 10px; margin-left: 8px;">⚡ 争议</span>
+            </div>
+            <div class="comment-text">
+              我觉得现在的业委会制度就挺好的，为什么要搞这么复杂？给津贴反而可能引来一些不合适的人，纯粹为了钱来当委员。
+            </div>
+            <div class="comment-actions">
+              <span class="comment-action" onclick="toggleLike(this)">
+                <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px;" alt="点赞">
+                <span>4</span>
+              </span>
+              <span class="comment-action" onclick="toggleDislike(this)">
+                <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px; transform: rotate(180deg);" alt="点踩">
+                <span style="color: #F59E0B; font-weight: 600;">8</span>
+              </span>
+              <span class="comment-action" onclick="replyComment(this)">
+                <img src="assets/lficon/chat-24-outline.svg" style="width: 14px; height: 14px;" alt="回复">
+                <span>回复</span>
+              </span>
+              <span class="comment-action" onclick="sendFlower(this)">
+                <img src="assets/lficon/flower.svg" style="width: 14px; height: 14px;" alt="送花">
+                <span>送花</span>
+              </span>
+            </div>
+            
+            <!-- 楼中楼回复 -->
+            <div class="comment-replies">
+              <div class="comment-item" style="margin-bottom: 0;">
+                <div class="comment-content">
+                  <div class="comment-header">
+                    <img src="assets/lficon/avatar-female-2.svg" class="comment-avatar" style="width: 28px; height: 28px;" alt="头像">
+                    <span class="comment-author">刘**</span>
+                    <span class="comment-time">2025-05-21 17:20</span>
+                  </div>
+                  <div class="comment-text">
+                    回复<span class="mention">@王**</span> 但是现在很多有能力的业主都不愿意参与，可能就是因为完全没有任何回报。适当的津贴可以吸引更多人才。
+                  </div>
+                  <div class="comment-actions">
+                    <span class="comment-action" onclick="toggleLike(this)">
+                      <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px;" alt="点赞">
+                      <span>12</span>
+                    </span>
+                    <span class="comment-action" onclick="toggleDislike(this)">
+                      <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px; transform: rotate(180deg);" alt="点踩">
+                      <span>1</span>
+                    </span>
+                    <span class="comment-action" onclick="replyComment(this)">
+                      <img src="assets/lficon/chat-24-outline.svg" style="width: 14px; height: 14px;" alt="回复">
+                      <span>回复</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="comment-item">
+          <div class="comment-content">
+            <div class="comment-header">
+              <img src="assets/lficon/avatar-young-female.svg" class="comment-avatar" alt="头像">
+              <span class="comment-author">陈**</span>
+              <span class="comment-time">2025-05-21 17:45</span>
+            </div>
+            <div class="comment-text">
+              我们小区业委会工作确实很辛苦，经常要处理各种纠纷和问题。如果有适当的津贴，可能会有更多业主愿意参与。关键是要透明公开，让大家知道钱怎么花的。
+            </div>
+            <div class="comment-actions">
+              <span class="comment-action" onclick="toggleLike(this)">
+                <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px;" alt="点赞">
+                <span>9</span>
+              </span>
+              <span class="comment-action" onclick="toggleDislike(this)">
+                <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px; transform: rotate(180deg);" alt="点踩">
+                <span>1</span>
+              </span>
+              <span class="comment-action" onclick="replyComment(this)">
+                <img src="assets/lficon/chat-24-outline.svg" style="width: 14px; height: 14px;" alt="回复">
+                <span>回复</span>
+              </span>
+              <span class="comment-action" onclick="sendFlower(this)">
+                <img src="assets/lficon/flower.svg" style="width: 14px; height: 14px;" alt="送花">
+                <span>送花</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+        </div>
+        </div> <!-- 关闭 comments-list -->
+      </div>
+      
+     
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // 附议功能已移除
+    let isCreator = true; // 模拟当前用户是发起者
+    
+    // 评论排序功能
+    let currentSortType = 'hot'; // 默认按热门排序
+    
+
+    
+    /**
+     * 评论排序功能
+     * @param {string} sortType - 排序类型 ('hot', 'time-desc', 'time-asc')
+     */
+    function sortComments(sortType) {
+      // 更新排序按钮状态
+      const hotTab = document.getElementById('sort-hot-tab');
+      const timeTab = document.getElementById('sort-time-tab');
+      const timeDescTab = document.getElementById('sort-time-desc');
+      const timeAscTab = document.getElementById('sort-time-asc');
+      
+      // 重置所有tab状态
+      [hotTab, timeTab, timeDescTab, timeAscTab].forEach(tab => {
+        if (tab) {
+          tab.setAttribute('data-state', 'inactive');
+          tab.setAttribute('aria-selected', 'false');
+          tab.classList.remove('active');
+        }
+      });
+      
+      // 激活当前选中的tab
+      if (sortType === 'hot') {
+        hotTab.setAttribute('data-state', 'active');
+        hotTab.setAttribute('aria-selected', 'true');
+        hotTab.classList.add('active');
+      } else if (sortType === 'time-desc') {
+        timeTab.setAttribute('data-state', 'active');
+        timeTab.setAttribute('aria-selected', 'true');
+        timeTab.classList.add('active');
+        timeDescTab.setAttribute('data-state', 'active');
+        timeDescTab.setAttribute('aria-selected', 'true');
+        timeDescTab.classList.add('active');
+      } else if (sortType === 'time-asc') {
+        timeTab.setAttribute('data-state', 'active');
+        timeTab.setAttribute('aria-selected', 'true');
+        timeTab.classList.add('active');
+        timeAscTab.setAttribute('data-state', 'active');
+        timeAscTab.setAttribute('aria-selected', 'true');
+        timeAscTab.classList.add('active');
+      }
+      
+      currentSortType = sortType;
+      
+      // 获取评论列表容器
+      const commentsList = document.getElementById('comments-list');
+      const comments = Array.from(commentsList.children);
+      
+      // 排序评论
+      comments.sort((a, b) => {
+        if (sortType === 'hot') {
+          // 按热门排序：优先显示热门标签的评论，然后按点赞数排序
+          const aIsHot = a.classList.contains('hot-comment');
+          const bIsHot = b.classList.contains('hot-comment');
+          
+          if (aIsHot && !bIsHot) return -1;
+          if (!aIsHot && bIsHot) return 1;
+          
+          // 获取点赞数
+          const aLikes = getLikesCount(a);
+          const bLikes = getLikesCount(b);
+          
+          return bLikes - aLikes; // 降序排列
+        } else if (sortType === 'time-desc') {
+          // 按时间倒序排序：最新的在前
+          const aTime = getCommentTime(a);
+          const bTime = getCommentTime(b);
+          
+          return bTime - aTime; // 降序排列（最新在前）
+        } else if (sortType === 'time-asc') {
+          // 按时间正序排序：最早的在前
+          const aTime = getCommentTime(a);
+          const bTime = getCommentTime(b);
+          
+          return aTime - bTime; // 正序排列（最早在前）
+        }
+        return 0;
+      });
+      
+      // 重新排列DOM元素
+      comments.forEach(comment => {
+        commentsList.appendChild(comment);
+      });
+      
+      // 添加排序动画效果
+      commentsList.style.opacity = '0.7';
+      setTimeout(() => {
+        commentsList.style.opacity = '1';
+      }, 200);
+    }
+    
+    /**
+     * 获取评论的点赞数
+     * @param {Element} commentElement - 评论元素
+     * @returns {number} 点赞数
+     */
+    function getLikesCount(commentElement) {
+      const likeButton = commentElement.querySelector('.comment-action');
+      if (likeButton) {
+        const countSpan = likeButton.querySelector('span');
+        if (countSpan) {
+          const count = parseInt(countSpan.textContent);
+          return isNaN(count) ? 0 : count;
+        }
+      }
+      return 0;
+    }
+    
+    /**
+     * 获取评论的时间戳
+     * @param {Element} commentElement - 评论元素
+     * @returns {number} 时间戳
+     */
+    function getCommentTime(commentElement) {
+      const timeElement = commentElement.querySelector('.comment-time');
+      if (timeElement) {
+        const timeText = timeElement.textContent.trim();
+        // 简单的时间解析，实际项目中应该使用更严格的时间解析
+        const timeMatch = timeText.match(/(\d{4})-(\d{2})-(\d{2})\s+(\d{2}):(\d{2})/);
+        if (timeMatch) {
+          const [, year, month, day, hour, minute] = timeMatch;
+          return new Date(year, month - 1, day, hour, minute).getTime();
+        }
+      }
+      return 0;
+    }
+    
+    // 评论互动功能
+    function toggleLike(element) {
+      element.classList.toggle('active');
+      const countSpan = element.querySelector('span');
+      let count = parseInt(countSpan.textContent);
+      // 如果显示的是"点赞"文字，则count为0
+      if (isNaN(count)) {
+        count = 0;
+      }
+      if (element.classList.contains('active')) {
+        countSpan.textContent = count + 1;
+      } else {
+        const newCount = Math.max(0, count - 1);
+        countSpan.textContent = newCount === 0 ? '点赞' : newCount;
+      }
+    }
+    
+    // 弹幕评论互动功能
+    function bulletToggleLike(element) {
+      element.classList.toggle('active');
+      const countSpan = element.querySelector('span');
+      let count = parseInt(countSpan.textContent) || 0;
+      
+      if (element.classList.contains('active')) {
+        countSpan.textContent = count + 1;
+        // 添加点击动画效果
+        element.style.transform = 'scale(1.1)';
+        setTimeout(() => {
+          element.style.transform = 'scale(1)';
+        }, 150);
+      } else {
+        countSpan.textContent = Math.max(0, count - 1);
+      }
+    }
+    
+    function bulletToggleDislike(element) {
+      element.classList.toggle('active');
+      const countSpan = element.querySelector('span');
+      let count = parseInt(countSpan.textContent) || 0;
+      
+      if (element.classList.contains('active')) {
+        countSpan.textContent = count + 1;
+        // 添加点击动画效果
+        element.style.transform = 'scale(1.1)';
+        setTimeout(() => {
+          element.style.transform = 'scale(1)';
+        }, 150);
+      } else {
+        countSpan.textContent = Math.max(0, count - 1);
+      }
+    }
+    
+    function toggleDislike(element) {
+      element.classList.toggle('active');
+      const countSpan = element.querySelector('span');
+      let count = parseInt(countSpan.textContent);
+      // 如果显示的是"点踩"文字，则count为0
+      if (isNaN(count)) {
+        count = 0;
+      }
+      if (element.classList.contains('active')) {
+        countSpan.textContent = count + 1;
+      } else {
+        const newCount = Math.max(0, count - 1);
+        countSpan.textContent = newCount === 0 ? '点踩' : newCount;
+      }
+    }
+    
+    function replyComment(element) {
+      alert('回复功能开发中...');
+    }
+    
+    // 展开/折叠楼中楼回复
+    function toggleReplies(element) {
+      const repliesContainer = element.closest('.comment-replies');
+      const hiddenReplies = repliesContainer.querySelectorAll('.hidden-reply');
+      const expandText = element.querySelector('.expand-text');
+      const expandIcon = element.querySelector('.expand-icon');
+      
+      if (element.classList.contains('expanded')) {
+        // 折叠回复
+        hiddenReplies.forEach(reply => {
+          reply.style.display = 'none';
+        });
+        expandText.textContent = `展开${hiddenReplies.length}条回复`;
+        element.classList.remove('expanded');
+      } else {
+        // 展开回复
+        hiddenReplies.forEach(reply => {
+          reply.style.display = 'block';
+        });
+        expandText.textContent = '收起回复';
+        element.classList.add('expanded');
+      }
+    }
+    
+    // AI话题投票功能
+    let topicVotes = {
+      'basic-first': { yes: 8, no: 2, userVoted: null },
+      'night-rules': { yes: 7, no: 1, userVoted: null }
+    };
+    
+    function voteOnTopic(button, topicId, voteType) {
+      const voteData = topicVotes[topicId];
+      if (voteData.userVoted) {
+        alert('您已经投过票了！');
+        return;
+      }
+      
+      // 更新投票数据
+      voteData[voteType]++;
+      voteData.userVoted = voteType;
+      
+      // 更新UI
+      const voteItem = button.closest('.topic-vote-item');
+      const buttons = voteItem.querySelectorAll('.vote-btn');
+      
+      buttons.forEach(btn => {
+        const countSpan = btn.querySelector('.vote-count');
+        const btnVoteType = btn.textContent.includes('支持') ? 'yes' : 'no';
+        countSpan.textContent = `(${voteData[btnVoteType]})`;
+        
+        if (btn === button) {
+          btn.classList.add('voted');
+        }
+        btn.disabled = true;
+        btn.style.cursor = 'not-allowed';
+      });
+      
+      // 显示投票成功提示
+      const voteType_zh = voteType === 'yes' ? '支持' : '反对';
+      const topicName = topicId === 'basic-first' ? '优先实施基础改造' : '增加夜间停车规定';
+      alert(`投票成功！您${voteType_zh}"${topicName}"`); 
+    }
+    
+    // 投票数据存储
+    let voteData = {
+      A: { agree: 12, disagree: 3, abstain: 1 },
+      B: { agree: 5, disagree: 9, abstain: 2 },
+      C: { agree: 14, disagree: 1, abstain: 1 }
+    };
+    
+    let userVotes = {}; // 存储用户的投票记录
+    
+    
+    // 投票功能
+    function castVote(proposal, voteType, button) {
+      // 检查用户是否已经对该方案投票
+      if (userVotes[proposal]) {
+        // 如果点击的是同一个选项，取消投票
+        if (userVotes[proposal] === voteType) {
+          // 减少对应的票数
+          voteData[proposal][voteType]--;
+          delete userVotes[proposal];
+          
+          // 移除选中状态
+          const proposalElement = document.querySelector(`[data-proposal="${proposal}"]`);
+          proposalElement.querySelectorAll('.vote-btn-option').forEach(btn => {
+            btn.style.opacity = '1';
+            btn.style.transform = 'scale(1)';
+          });
+        } else {
+          // 如果点击的是不同选项，先减少原来的票数，再增加新的票数
+          voteData[proposal][userVotes[proposal]]--;
+          voteData[proposal][voteType]++;
+          userVotes[proposal] = voteType;
+          
+          // 更新按钮状态
+          updateVoteButtonStates(proposal, voteType);
+        }
+      } else {
+        // 首次投票
+        voteData[proposal][voteType]++;
+        userVotes[proposal] = voteType;
+        
+        // 更新按钮状态
+        updateVoteButtonStates(proposal, voteType);
+      }
+      
+      // 更新显示的票数
+      updateVoteDisplay();
+      
+      
+      
+      // 显示投票反馈
+      showVoteFeedback(voteType);
+    }
+    
+    // 更新投票按钮状态
+    function updateVoteButtonStates(proposal, selectedVote) {
+      const proposalElement = document.querySelector(`[data-proposal="${proposal}"]`);
+      const buttons = proposalElement.querySelectorAll('.vote-btn-option');
+      
+      buttons.forEach(btn => {
+        const btnVoteType = btn.getAttribute('data-vote');
+        if (btnVoteType === selectedVote) {
+          // 选中状态
+          btn.style.opacity = '1';
+          btn.style.transform = 'scale(1.05)';
+          btn.style.boxShadow = '0 2px 8px rgba(0, 82, 217, 0.3)';
+        } else {
+          // 未选中状态
+          btn.style.opacity = '0.6';
+          btn.style.transform = 'scale(1)';
+          btn.style.boxShadow = 'none';
+        }
+      });
+    }
+    
+    // 更新投票数字显示
+    function updateVoteDisplay() {
+      Object.keys(voteData).forEach(proposal => {
+        const proposalElement = document.querySelector(`[data-proposal="${proposal}"]`);
+        const agreeBtn = proposalElement.querySelector('[data-vote="agree"] .vote-count');
+        const disagreeBtn = proposalElement.querySelector('[data-vote="disagree"] .vote-count');
+        const abstainBtn = proposalElement.querySelector('[data-vote="abstain"] .vote-count');
+        
+        agreeBtn.textContent = voteData[proposal].agree;
+        disagreeBtn.textContent = voteData[proposal].disagree;
+        abstainBtn.textContent = voteData[proposal].abstain;
+      });
+    }
+    
+    // 显示投票反馈
+    function showVoteFeedback(voteType) {
+      const messages = {
+        agree: '投票成功！您选择了赞成',
+        disagree: '投票成功！您选择了反对', 
+        abstain: '投票成功！您选择了弃权'
+      };
+      
+      const colors = {
+        agree: '#10B981',
+        disagree: '#EF4444',
+        abstain: '#F59E0B'
+      };
+      
+      const toast = document.createElement('div');
+      toast.textContent = messages[voteType];
+      toast.style.position = 'fixed';
+      toast.style.top = '50%';
+      toast.style.left = '50%';
+      toast.style.transform = 'translate(-50%, -50%)';
+      toast.style.background = colors[voteType];
+      toast.style.color = 'white';
+      toast.style.padding = '8px 16px';
+      toast.style.borderRadius = '20px';
+      toast.style.fontSize = '14px';
+      toast.style.zIndex = '9999';
+      toast.style.opacity = '0';
+      toast.style.transition = 'opacity 0.3s ease';
+      
+      document.body.appendChild(toast);
+      
+      setTimeout(() => { toast.style.opacity = '1'; }, 10);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        setTimeout(() => { document.body.removeChild(toast); }, 300);
+      }, 1500);
+    }
+    
+    // 初始化投票图表
+
+    
+    // 附件数据与渲染功能（复用event-detail.html）
+    let figmaAttachments = [
+      {name:'业主委员会津贴制度实施方案.pdf',size:186000,uploadDate:'2024-01-12T09:00:00Z',type:'application/pdf',url:'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'}
+    ];
+    
+    function renderFigmaAttachments() {
+      const list = document.getElementById('figma-attachment-list');
+      if (!list) return;
+      list.innerHTML = '';
+      figmaAttachments.forEach((file, idx) => {
+        const ext = file.name ? file.name.split('.').pop().toLowerCase() : '';
+        let iconMap = {
+          'doc': 'assets/lficon/doc-24.svg',
+          'docx': 'assets/lficon/docx-24.svg',
+          'pdf': 'assets/lficon/pdf-24.svg',
+          'xls': 'assets/lficon/xls-24.svg',
+          'xlsx': 'assets/lficon/xlsx-24.svg',
+          'ppt': 'assets/lficon/ppt-24.svg',
+          'pptx': 'assets/lficon/pptx-24.svg',
+        };
+        let iconSrc = iconMap[ext] || 'assets/lficon/file-24-outline.svg';
+        let size = file.size ? (file.size/1024>1024 ? (file.size/1024/1024).toFixed(2)+"MB" : (file.size/1024).toFixed(1)+"KB") : '';
+        let uploadDate = file.uploadDate ? new Date(file.uploadDate) : new Date();
+        let month = uploadDate.getMonth() + 1;
+        let day = uploadDate.getDate();
+        let uploadTimeStr = `${month}月${day}日`;
+        
+        const card = document.createElement('div');
+        card.className = 'attachment-item';
+        card.innerHTML = `
+          <img src='${iconSrc}' alt='icon' class='attachment-icon'>
+          <div class='attachment-info'>
+            <div class='attachment-name' title='${file.name}'>${file.name}</div>
+            <div class='attachment-size'>${size}</div>
+          </div>
+        `;
+        card.style.cursor = 'pointer';
+        card.onclick = function(e) {
+          showAttachmentPreview(file);
+        };
+        list.appendChild(card);
+      });
+    }
+    
+    // 附件预览弹窗功能
+    function showAttachmentPreview(file) {
+      const oldModal = document.getElementById('attachment-preview-modal');
+      if (oldModal) oldModal.remove();
+      
+      let previewHtml = '';
+      if (file.type && file.type.startsWith('image/') && file.url) {
+        previewHtml = `<img src='${file.url}' alt='预览图片' style='max-width:320px;max-height:320px;border-radius:8px;margin-bottom:12px;'>`;
+      } else if (file.type === 'application/pdf' && file.url) {
+        previewHtml = `<embed src='${file.url}' type='application/pdf' width='320' height='400' style='border-radius:8px;margin-bottom:12px;' />`;
+      } else if ((file.type && file.type.startsWith('text/')) || /\.(txt|csv)$/i.test(file.name)) {
+        if (file.content) {
+          previewHtml = `<pre style='max-width:320px;max-height:320px;overflow:auto;background:#f7f7f7;padding:12px;border-radius:8px;margin-bottom:12px;'>${escapeHtml(file.content)}</pre>`;
+        } else {
+          previewHtml = `<div style='color:#999;margin-bottom:12px;'>无法读取内容</div>`;
+        }
+      } else {
+        previewHtml = `<div style='color:#999;margin-bottom:12px;'>暂不支持该类型文件预览</div>`;
+      }
+      
+      const modal = document.createElement('div');
+      modal.id = 'attachment-preview-modal';
+      modal.style.position = 'fixed';
+      modal.style.left = '0';
+      modal.style.top = '0';
+      modal.style.width = '100vw';
+      modal.style.height = '100vh';
+      modal.style.background = 'rgba(0,0,0,0.5)';
+      modal.style.display = 'flex';
+      modal.style.alignItems = 'center';
+      modal.style.justifyContent = 'center';
+      modal.style.zIndex = '9999';
+      modal.innerHTML = `
+        <div style="background:#fff;border-radius:12px;min-width:260px;max-width:90vw;padding:24px 20px;box-shadow:0 4px 24px rgba(0,0,0,0.12);display:flex;flex-direction:column;align-items:center;">
+          <div style='font-size:16px;font-weight:600;margin-bottom:12px;'>附件预览</div>
+          ${previewHtml}
+          <div style='font-size:14px;color:#333;margin-bottom:8px;word-break:break-all;text-align:center;'>${file.name}</div>
+          <button onclick="document.getElementById('attachment-preview-modal').remove()" style='margin-top:18px;padding:6px 24px;border:none;border-radius:6px;background:#2D6AE0;color:#fff;font-size:14px;cursor:pointer;'>关闭</button>
+        </div>
+      `;
+      document.body.appendChild(modal);
+    }
+    
+    // 工具函数：转义HTML
+    function escapeHtml(str) {
+      return str.replace(/[&<>"']/g, function (c) {
+        return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c];
+      });
+    }
+    
+    // 送小红花功能
+    function sendFlower(button) {
+      const countSpan = button.querySelector('span');
+      let currentCount = parseInt(countSpan.textContent) || 0;
+      
+      // 增加花朵数量
+      currentCount++;
+      countSpan.textContent = currentCount;
+      
+      // 添加动画效果
+      button.style.transform = 'scale(1.2)';
+      button.style.transition = 'transform 0.2s ease';
+      
+      setTimeout(() => {
+        button.style.transform = 'scale(1)';
+      }, 200);
+      
+      // 显示送花成功提示
+      const toast = document.createElement('div');
+      toast.textContent = '送花成功！';
+      toast.style.position = 'fixed';
+      toast.style.top = '50%';
+      toast.style.left = '50%';
+      toast.style.transform = 'translate(-50%, -50%)';
+      toast.style.background = '#FF6B6B';
+      toast.style.color = 'white';
+      toast.style.padding = '8px 16px';
+      toast.style.borderRadius = '20px';
+      toast.style.fontSize = '14px';
+      toast.style.zIndex = '9999';
+      toast.style.opacity = '0';
+      toast.style.transition = 'opacity 0.3s ease';
+      
+      document.body.appendChild(toast);
+      
+      // 显示动画
+      setTimeout(() => {
+        toast.style.opacity = '1';
+      }, 10);
+      
+      // 隐藏动画
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        setTimeout(() => {
+          document.body.removeChild(toast);
+        }, 300);
+      }, 1500);
+    }
+    
+    // 页面加载时渲染附件和初始化状态
+    window.addEventListener('DOMContentLoaded', function() {
+      renderFigmaAttachments();
+      initializePageState();
+      updateAIAnalysis(); // 初始化AI分析数据
+    });
+    
+    // 初始化页面状态
+     function initializePageState() {
+       // 附议功能已移除，无需初始化相关状态
+    }
+    
+    // 切换AI助手面板显示状态
+    function toggleAIAssistant() {
+      const panel = document.getElementById('ai-assistant-panel');
+      const btn = document.getElementById('ai-assistant-toggle-btn');
+      
+      if (panel.style.display === 'none' || panel.style.display === '') {
+        panel.style.display = 'block';
+        btn.innerHTML = '<i class="fas fa-robot" style="font-size: 11px;"></i><span>收起助手</span>';
+        // 添加展开动画
+        panel.style.opacity = '0';
+        panel.style.transform = 'translateY(-10px)';
+        setTimeout(() => {
+          panel.style.transition = 'all 0.3s ease';
+          panel.style.opacity = '1';
+          panel.style.transform = 'translateY(0)';
+        }, 10);
+        
+        // 更新AI分析数据
+        updateAIAnalysis();
+      } else {
+        panel.style.transition = 'all 0.3s ease';
+        panel.style.opacity = '0';
+        panel.style.transform = 'translateY(-10px)';
+        setTimeout(() => {
+          panel.style.display = 'none';
+          btn.innerHTML = '<i class="fas fa-robot" style="font-size: 11px;"></i><span>AI助手</span>';
+        }, 300);
+      }
+    }
+    
+    // 模拟AI分析数据更新
+    function updateAIAnalysis() {
+      // 获取当前评论数据
+      const comments = document.querySelectorAll('.comment-item:not(#ai-assistant-comment)');
+      const participants = new Set();
+      
+      comments.forEach(comment => {
+        const author = comment.querySelector('.comment-author');
+        if (author) {
+          participants.add(author.textContent.trim());
+        }
+      });
+      
+      // 更新参与人数和评论数
+      const participantCount = participants.size;
+      const commentCount = comments.length;
+      
+      // 更新AI面板中的数据
+      const panel = document.getElementById('ai-assistant-panel');
+      if (panel) {
+        // 更新精简版数据显示
+        const participantEl = document.getElementById('participant-count');
+        const commentEl = document.getElementById('comment-count');
+        if (participantEl) participantEl.textContent = participantCount;
+        if (commentEl) commentEl.textContent = commentCount;
+        
+        // 更新话题相关性和讨论热度
+        const relevanceEl = panel.querySelector('.grid .text-center:nth-child(3) .text-lg');
+        const heatEl = panel.querySelector('.grid .text-center:nth-child(4) .text-lg');
+        if (relevanceEl) relevanceEl.textContent = '92%';
+        if (heatEl) heatEl.textContent = '很高';
+        
+        // 更新话题标签
+        const topicTags = panel.querySelector('.flex.flex-wrap');
+        if (topicTags) {
+          topicTags.innerHTML = `
+            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">#技术方案</span>
+            <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">#成本分析</span>
+            <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs">#管理规则</span>
+            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs">#争议讨论</span>
+          `;
+        }
+      }
+      
+      // 注意：详细分析内容现在直接在弹幕评论区内部切换显示，无需单独更新
+      
+      // 模拟实时分析状态更新
+      const statusText = document.getElementById('ai-status-text');
+      if (statusText) {
+        statusText.textContent = '分析完成 • ' + new Date().toLocaleTimeString();
+      }
+    }
+    
+    /**
+     * 切换详细AI分析内容
+     * 在精简讨论概况内部替换弹幕评论区为三种分析卡片
+     */
+    function toggleDetailedAIAnalysis() {
+      const bulletCommentsSection = document.getElementById('bullet-comments-section');
+      const btn = document.getElementById('detailed-analysis-btn');
+      const aiIcon = btn.querySelector('.ai-icon');
+      const backIcon = btn.querySelector('.back-icon');
+      
+      // 通过检查按钮文本来判断当前状态
+      const isShowingComments = btn.querySelector('span').textContent === '一键分析评论';
+      
+      if (isShowingComments) {
+        // 隐藏弹幕评论区，在原位置显示分析卡片
+        bulletCommentsSection.style.transition = 'all 0.3s ease';
+        bulletCommentsSection.style.opacity = '0';
+        bulletCommentsSection.style.transform = 'translateY(-10px)';
+        
+        setTimeout(() => {
+          // 创建分析卡片内容并替换弹幕评论区
+          bulletCommentsSection.innerHTML = `
+      
+            <!-- 内容质量评分 -->
+            <div style="background: white; border-left: 2px solid #0052D9; margin-bottom: 8px; padding: 12px; border-radius: 8px; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04); border: 1px solid #E5E7EB; transition: all 0.2s ease;">
+              <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 10px;">
+                <img src="assets/lficon/chart.svg" style="width: 14px; height: 14px; filter: brightness(0) saturate(100%) invert(18%) sepia(100%) saturate(2000%) hue-rotate(220deg) brightness(95%) contrast(101%);" alt="图表">
+                <span style="font-weight: 600; color: #1F2937; font-size: 14px;">内容质量评分</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="text-align: center;">
+                  <div style="width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #0052D9 0%, #4A90E2 100%); display: flex; align-items: center; justify-content: center; color: white; margin-bottom: 4px; box-shadow: 0 2px 6px rgba(0, 82, 217, 0.3);">
+                    <span style="font-size: 14px; font-weight: 600;">8.2</span>
+                  </div>
+                  <div style="font-size: 10px; color: #6B7280;">综合评分</div>
+                </div>
+                <div style="flex: 1;">
+                  <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 6px;">
+                    <span style="font-size: 11px; color: #6B7280; width: 36px;">建设性</span>
+                    <div style="flex: 1; height: 4px; background: #F3F4F6; border-radius: 2px; overflow: hidden;">
+                      <div style="width: 90%; height: 100%; background: linear-gradient(90deg, #00A870 0%, #10B981 100%); border-radius: 2px;"></div>
+                    </div>
+                    <span style="font-size: 11px; color: #374151; width: 20px; text-align: right;">9.0</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 6px;">
+                    <span style="font-size: 11px; color: #6B7280; width: 36px;">相关性</span>
+                    <div style="flex: 1; height: 4px; background: #F3F4F6; border-radius: 2px; overflow: hidden;">
+                      <div style="width: 85%; height: 100%; background: linear-gradient(90deg, #0052D9 0%, #4A90E2 100%); border-radius: 2px;"></div>
+                    </div>
+                    <span style="font-size: 11px; color: #374151; width: 20px; text-align: right;">8.5</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 情感倾向分析 -->
+            <div style="background: white; border-left: 2px solid #10B981; margin-bottom: 8px; padding: 12px; border-radius: 8px; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04); border: 1px solid #E5E7EB; transition: all 0.2s ease;">
+              <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 10px;">
+                <img src="assets/lficon/heart.svg" style="width: 14px; height: 14px; filter: brightness(0) saturate(100%) invert(64%) sepia(88%) saturate(2890%) hue-rotate(130deg) brightness(95%) contrast(80%);" alt="心形">
+                <span style="font-weight: 600; color: #1F2937; font-size: 14px;">情感倾向分析</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                <div style="flex: 1; display: flex; align-items: center; gap: 8px;">
+                  <div style="text-align: center;">
+                    <div style="width: 24px; height: 24px; border-radius: 50%; background: #10B981; display: flex; align-items: center; justify-content: center; margin-bottom: 3px;">
+                      <i class="fas fa-smile" style="color: white; font-size: 10px;"></i>
+                    </div>
+                    <div style="font-size: 9px; color: #6B7280;">正面</div>
+                    <div style="font-size: 12px; font-weight: 600; color: #10B981;">65%</div>
+                  </div>
+                  <div style="text-align: center;">
+                    <div style="width: 24px; height: 24px; border-radius: 50%; background: #6B7280; display: flex; align-items: center; justify-content: center; margin-bottom: 3px;">
+                      <i class="fas fa-meh" style="color: white; font-size: 10px;"></i>
+                    </div>
+                    <div style="font-size: 9px; color: #6B7280;">中性</div>
+                    <div style="font-size: 12px; font-weight: 600; color: #6B7280;">25%</div>
+                  </div>
+                  <div style="text-align: center;">
+                    <div style="width: 24px; height: 24px; border-radius: 50%; background: #EF4444; display: flex; align-items: center; justify-content: center; margin-bottom: 3px;">
+                      <i class="fas fa-frown" style="color: white; font-size: 10px;"></i>
+                    </div>
+                    <div style="font-size: 9px; color: #6B7280;">负面</div>
+                    <div style="font-size: 12px; font-weight: 600; color: #EF4444;">10%</div>
+                  </div>
+                </div>
+                <div style="width: 60px; height: 60px; border-radius: 50%; background: conic-gradient(#10B981 0deg 234deg, #6B7280 234deg 324deg, #EF4444 324deg 360deg); display: flex; align-items: center; justify-content: center;">
+                  <div style="width: 44px; height: 44px; border-radius: 50%; background: white; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <div style="font-size: 10px; font-weight: 600; color: #10B981;">积极</div>
+                    <div style="font-size: 8px; color: #6B7280;">整体倾向</div>
+                  </div>
+                </div>
+              </div>
+              <div style="background: #F0FDF4; border-radius: 6px; padding: 8px;">
+                <div style="font-size: 10px; color: #6B7280; margin-bottom: 3px;">情感趋势</div>
+                <div style="font-size: 11px; color: #374151; line-height: 1.4;">讨论整体呈现积极建设性态度，用户对阳光共治模式表现出较高认同度，争议主要集中在具体实施细节上。</div>
+              </div>
+            </div>
+            
+            <!-- 参与度分析 -->
+            <div style="background: white; border-left: 2px solid #8B5CF6; margin-bottom: 8px; padding: 12px; border-radius: 8px; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04); border: 1px solid #E5E7EB; transition: all 0.2s ease;">
+              <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 10px;">
+                <img src="assets/lficon/people.svg" style="width: 14px; height: 14px; filter: brightness(0) saturate(100%) invert(64%) sepia(35%) saturate(4000%) hue-rotate(250deg) brightness(95%) contrast(95%);" alt="用户">
+                <span style="font-weight: 600; color: #1F2937; font-size: 14px;">参与度分析</span>
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
+                <div>
+                  <div style="font-size: 10px; color: #6B7280; margin-bottom: 6px;">活跃用户 TOP3</div>
+                  <div style="space-y: 3px;">
+                    <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 3px;">
+                      <div style="width: 16px; height: 16px; border-radius: 50%; background: #FFD700; display: flex; align-items: center; justify-content: center; font-size: 8px; font-weight: 600; color: white;">1</div>
+                      <span style="font-size: 10px; color: #374151;">包**</span>
+                      <span style="font-size: 9px; color: #6B7280;">5条</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 3px;">
+                      <div style="width: 16px; height: 16px; border-radius: 50%; background: #C0C0C0; display: flex; align-items: center; justify-content: center; font-size: 8px; font-weight: 600; color: white;">2</div>
+                      <span style="font-size: 10px; color: #374151;">何**</span>
+                      <span style="font-size: 9px; color: #6B7280;">4条</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                      <div style="width: 16px; height: 16px; border-radius: 50%; background: #CD7F32; display: flex; align-items: center; justify-content: center; font-size: 8px; font-weight: 600; color: white;">3</div>
+                      <span style="font-size: 10px; color: #374151;">赵**</span>
+                      <span style="font-size: 9px; color: #6B7280;">3条</span>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div style="font-size: 10px; color: #6B7280; margin-bottom: 6px;">互动统计</div>
+                  <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
+                    <span style="font-size: 10px; color: #6B7280; width: 40px;">回复深度</span>
+                    <div style="flex: 1; height: 3px; background: #F3F4F6; border-radius: 2px; overflow: hidden;">
+                      <div style="width: 60%; height: 100%; background: #8B5CF6; border-radius: 2px;"></div>
+                    </div>
+                    <span style="font-size: 9px; color: #374151;">3层</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
+                    <span style="font-size: 10px; color: #6B7280; width: 40px;">互动频率</span>
+                    <div style="flex: 1; height: 3px; background: #F3F4F6; border-radius: 2px; overflow: hidden;">
+                      <div style="width: 80%; height: 100%; background: #8B5CF6; border-radius: 2px;"></div>
+                    </div>
+                    <span style="font-size: 9px; color: #374151;">高</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 6px;">
+                    <span style="font-size: 10px; color: #6B7280; width: 40px;">平均回复</span>
+                    <div style="flex: 1; height: 3px; background: #F3F4F6; border-radius: 2px; overflow: hidden;">
+                      <div style="width: 70%; height: 100%; background: #8B5CF6; border-radius: 2px;"></div>
+                    </div>
+                    <span style="font-size: 9px; color: #374151;">2.3条</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+
+            <!-- 话题分析 -->
+            <div style="background: white; border-left: 2px solid #00A870; margin-bottom: 10px; padding: 12px; border-radius: 8px; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03); border: 1px solid #E5E7EB; transition: all 0.2s ease;">
+              <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 12px;">
+                <img src="assets/lficon/speaker.svg" style="width: 14px; height: 14px; filter: brightness(0) saturate(100%) invert(64%) sepia(88%) saturate(2890%) hue-rotate(120deg) brightness(85%) contrast(90%);" alt="扬声器">
+                <span style="font-weight: 600; color: #1F2937; font-size: 14px;">话题分析</span>
+              </div>
+              <div style="margin-bottom: 12px;">
+                <div style="font-size: 10px; color: #6B7280; margin-bottom: 6px; font-weight: 500;">关键词云</div>
+                <div style="background: #FAFAFA; border-radius: 6px; padding: 8px; text-align: center; line-height: 1.6; margin-bottom: 12px;">
+                  <span style="font-size: 14px; font-weight: 600; color: #EF4444; margin: 0 4px;">阳光共治</span>
+                  <span style="font-size: 11px; font-weight: 500; color: #F59E0B; margin: 0 3px;">社区参与</span>
+                  <span style="font-size: 12px; font-weight: 600; color: #10B981; margin: 0 3px;">透明度</span>
+                  <span style="font-size: 9px; font-weight: 400; color: #8B5CF6; margin: 0 2px;">监督</span>
+                  <span style="font-size: 11px; font-weight: 500; color: #0052D9; margin: 0 3px;">执行效果</span>
+                  <span style="font-size: 10px; font-weight: 400; color: #6B7280; margin: 0 2px;">资源配置</span>
+                  <span style="font-size: 13px; font-weight: 600; color: #F59E0B; margin: 0 4px;">实施</span>
+                  <span style="font-size: 8px; font-weight: 400; color: #10B981; margin: 0 2px;">机制</span>
+                  <span style="font-size: 11px; font-weight: 500; color: #EF4444; margin: 0 3px;">治理</span>
+                  <span style="font-size: 9px; font-weight: 400; color: #8B5CF6; margin: 0 2px;">创新</span>
+                  <span style="font-size: 12px; font-weight: 600; color: #0052D9; margin: 0 3px;">模式</span>
+                  <span style="font-size: 10px; font-weight: 400; color: #F59E0B; margin: 0 2px;">建议</span>
+                </div>
+              </div>
+              <div style="margin-bottom: 12px;">
+                <div style="font-size: 10px; color: #6B7280; margin-bottom: 6px; font-weight: 500;">主要讨论点</div>
+                <div style="display: flex; flex-wrap: wrap; gap: 4px;">
+                  <span style="background: #EBF3FF; color: #0052D9; padding: 3px 6px; border-radius: 4px; font-size: 10px; position: relative;">
+                    业委会津贴
+                    <span style="position: absolute; top: -3px; right: -3px; background: #EF4444; color: white; border-radius: 50%; width: 10px; height: 10px; font-size: 7px; display: flex; align-items: center; justify-content: center;">8</span>
+                  </span>
+                  <span style="background: #F0FDF4; color: #00A870; padding: 3px 6px; border-radius: 4px; font-size: 10px; position: relative;">
+                    阳光共治模式
+                    <span style="position: absolute; top: -3px; right: -3px; background: #10B981; color: white; border-radius: 50%; width: 10px; height: 10px; font-size: 7px; display: flex; align-items: center; justify-content: center;">6</span>
+                  </span>
+                  <span style="background: #FEF3C7; color: #ED7B2F; padding: 3px 6px; border-radius: 4px; font-size: 10px; position: relative;">
+                    权责分配
+                    <span style="position: absolute; top: -3px; right: -3px; background: #F59E0B; color: white; border-radius: 50%; width: 10px; height: 10px; font-size: 7px; display: flex; align-items: center; justify-content: center;">5</span>
+                  </span>
+                  <span style="background: #FEE2E2; color: #E34D59; padding: 3px 6px; border-radius: 4px; font-size: 10px; position: relative;">
+                    监督机制
+                    <span style="position: absolute; top: -3px; right: -3px; background: #8B5CF6; color: white; border-radius: 50%; width: 10px; height: 10px; font-size: 7px; display: flex; align-items: center; justify-content: center;">4</span>
+                  </span>
+                </div>
+              </div>
+              <div>
+                <div style="font-size: 10px; color: #6B7280; margin-bottom: 6px; font-weight: 500;">争议焦点</div>
+                <div style="font-size: 12px; color: #374151; line-height: 1.4;">
+                  <div style="margin-bottom: 3px; display: flex; align-items: center; gap: 6px;">
+                    <span style="width: 3px; height: 3px; background: #EF4444; border-radius: 50%;"></span>
+                    津贴象征意义与实际价值的平衡
+                    <span style="background: #FEE2E2; color: #EF4444; padding: 1px 3px; border-radius: 3px; font-size: 8px; font-weight: 500;">高争议</span>
+                  </div>
+                  <div style="margin-bottom: 3px; display: flex; align-items: center; gap: 6px;">
+                    <span style="width: 3px; height: 3px; background: #F59E0B; border-radius: 50%;"></span>
+                    阳光共治与传统家长制的选择
+                    <span style="background: #FEF3C7; color: #F59E0B; padding: 1px 3px; border-radius: 3px; font-size: 8px; font-weight: 500;">中争议</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 6px;">
+                    <span style="width: 3px; height: 3px; background: #8B5CF6; border-radius: 50%;"></span>
+                    全业主监督机制的可操作性
+                    <span style="background: #F3F4F6; color: #8B5CF6; padding: 1px 3px; border-radius: 3px; font-size: 8px; font-weight: 500;">待讨论</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 讨论总结 -->
+            <div style="background: white; border-left: 2px solid #ED7B2F; margin-bottom: 0; padding: 12px; border-radius: 8px; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03); border: 1px solid #E5E7EB; transition: all 0.2s ease;">
+              <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 12px;">
+                <img src="assets/lficon/receipt-item.svg" style="width: 14px; height: 14px; filter: brightness(0) saturate(100%) invert(64%) sepia(88%) saturate(2890%) hue-rotate(20deg) brightness(95%) contrast(95%);" alt="收据项目">
+                <span style="font-weight: 600; color: #1F2937; font-size: 14px;">讨论总结</span>
+              </div>
+              
+              <!-- 核心建议 -->
+              <div style="margin-bottom: 12px;">
+                <div style="font-size: 10px; color: #6B7280; margin-bottom: 8px; font-weight: 500;">核心建议</div>
+                <div style="font-size: 12px; color: #374151; line-height: 1.5;">
+                  <div style="margin-bottom: 8px; display: flex; align-items: flex-start; gap: 8px; padding: 6px 0; border-bottom: 1px solid #F3F4F6;">
+                    <span style="background: linear-gradient(135deg, #EF4444, #DC2626); color: white; padding: 2px 6px; border-radius: 8px; font-size: 8px; font-weight: 600; min-width: 40px; text-align: center; box-shadow: 0 1px 3px rgba(239, 68, 68, 0.2);">紧急</span>
+                    <span style="flex: 1;">建立透明的津贴标准和发放机制，明确津贴数额、发放条件和监督流程</span>
+                  </div>
+                  <div style="margin-bottom: 8px; display: flex; align-items: flex-start; gap: 8px; padding: 6px 0; border-bottom: 1px solid #F3F4F6;">
+                    <span style="background: linear-gradient(135deg, #F59E0B, #D97706); color: white; padding: 2px 6px; border-radius: 8px; font-size: 8px; font-weight: 600; min-width: 40px; text-align: center; box-shadow: 0 1px 3px rgba(245, 158, 11, 0.2);">重要</span>
+                    <span style="flex: 1;">推行阳光共治模式，实现件件公开、事事投票的民主决策机制</span>
+                  </div>
+                  <div style="margin-bottom: 8px; display: flex; align-items: flex-start; gap: 8px; padding: 6px 0; border-bottom: 1px solid #F3F4F6;">
+                    <span style="background: linear-gradient(135deg, #10B981, #059669); color: white; padding: 2px 6px; border-radius: 8px; font-size: 8px; font-weight: 600; min-width: 40px; text-align: center; box-shadow: 0 1px 3px rgba(16, 185, 129, 0.2);">中等</span>
+                    <span style="flex: 1;">设立独立监督委员会，形成权力制衡，避免一言堂现象</span>
+                  </div>
+                  <div style="margin-bottom: 8px; display: flex; align-items: flex-start; gap: 8px; padding: 6px 0; border-bottom: 1px solid #F3F4F6;">
+                    <span style="background: linear-gradient(135deg, #8B5CF6, #7C3AED); color: white; padding: 2px 6px; border-radius: 8px; font-size: 8px; font-weight: 600; min-width: 40px; text-align: center; box-shadow: 0 1px 3px rgba(139, 92, 246, 0.2);">中等</span>
+                    <span style="flex: 1;">制定详细的权责分配制度，明确各方职责边界和问责机制</span>
+                  </div>
+                  <div style="display: flex; align-items: flex-start; gap: 8px; padding: 6px 0;">
+                    <span style="background: linear-gradient(135deg, #6B7280, #4B5563); color: white; padding: 2px 6px; border-radius: 8px; font-size: 8px; font-weight: 600; min-width: 40px; text-align: center; box-shadow: 0 1px 3px rgba(107, 114, 128, 0.2);">一般</span>
+                    <span style="flex: 1;">建立定期评估机制，根据实施效果动态调整治理模式</span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- 实施评估 -->
+              <div style="background: #F8FAFC; border-radius: 6px; padding: 8px; border: 1px solid #E2E8F0;">
+                <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 8px;">
+                  <i class="fas fa-chart-pie" style="color: #10B981; font-size: 12px;"></i>
+                  <span style="font-size: 10px; font-weight: 600; color: #10B981;">实施可行性评估</span>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 10px;">
+                  <div style="display: flex; justify-content: space-between; padding: 2px 0;">
+                    <span style="color: #6B7280;">技术难度：</span>
+                    <span style="color: #10B981; font-weight: 500;">中等</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; padding: 2px 0;">
+                    <span style="color: #6B7280;">资源需求：</span>
+                    <span style="color: #F59E0B; font-weight: 500;">适中</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; padding: 2px 0;">
+                    <span style="color: #6B7280;">时间周期：</span>
+                    <span style="color: #8B5CF6; font-weight: 500;">3-6个月</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; padding: 2px 0;">
+                    <span style="color: #6B7280;">成功概率：</span>
+                    <span style="color: #10B981; font-weight: 500;">85%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+          
+          // 显示更新后的内容
+          bulletCommentsSection.style.opacity = '0';
+          bulletCommentsSection.style.transform = 'translateY(10px)';
+          
+          setTimeout(() => {
+            bulletCommentsSection.style.transition = 'all 0.3s ease';
+            bulletCommentsSection.style.opacity = '1';
+            bulletCommentsSection.style.transform = 'translateY(0)';
+          }, 10);
+          
+          // 更新按钮状态
+          btn.querySelector('span').textContent = '返回评论区';
+          aiIcon.style.display = 'none';
+          backIcon.style.display = 'inline-block';
+        }, 300);
+      } else {
+        // 恢复弹幕评论区的原始内容
+        bulletCommentsSection.style.transition = 'all 0.3s ease';
+        bulletCommentsSection.style.opacity = '0';
+        bulletCommentsSection.style.transform = 'translateY(10px)';
+        
+        setTimeout(() => {
+          // 恢复原始弹幕评论区内容
+          bulletCommentsSection.innerHTML = `
+            <div class="bullet-comments-header">
+              <span>实时评论</span>
+              <div class="bullet-comments-count" onclick="navigateToDiscussionDetail()" style="cursor: pointer; transition: all 0.2s ease;">
+                <span class="count-text">查看详情评论</span>
+                <i class="fas fa-chevron-right" style="font-size: 10px; margin-left: 4px; color: #0052D9;"></i>
+              </div>
+            </div>
+            <div class="bullet-comments-list">
+              <!-- 热门评论 -->
+              <div class="bullet-comment bullet-comment-hot">
+                <span class="bullet-text"><span class="bullet-username">包**</span>：津贴应该有象征性意义，但更重要的是权责对等机制</span>
+                <div class="bullet-actions">
+                  <div class="bullet-like" onclick="bulletToggleLike(this)">
+                    <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px;" alt="点赞">
+                    <span>18</span>
+                  </div>
+                  <span class="bullet-badge bullet-badge-hot">🔥 热门</span>
+                </div>
+              </div>
+              
+              <!-- 高质量评论 -->
+              <div class="bullet-comment bullet-comment-quality">
+                <span class="bullet-text"><span class="bullet-username">何**</span>：阳光共治让任何业主都有权监督，避免少数人垄断权力</span>
+                <div class="bullet-actions">
+                  <div class="bullet-like" onclick="bulletToggleLike(this)">
+                    <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px;" alt="点赞">
+                    <span>15</span>
+                  </div>
+                  <span class="bullet-badge bullet-badge-quality">💎 优质</span>
+                </div>
+              </div>
+              
+              <!-- 普通评论 -->
+              <div class="bullet-comment bullet-comment-normal">
+                <span class="bullet-text"><span class="bullet-username">古**</span>：被推荐的委员也需要主动报名，说明有心理准备</span>
+                <div class="bullet-actions">
+                  <div class="bullet-like" onclick="bulletToggleLike(this)">
+                    <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px;" alt="点赞">
+                    <span>8</span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- 争议评论 -->
+              <div class="bullet-comment bullet-comment-controversial">
+                <span class="bullet-text"><span class="bullet-username">赵**</span>：拿了津贴业主骂得理直气壮，不如不拿</span>
+                <div class="bullet-actions">
+                  <div class="bullet-dislike" onclick="bulletToggleDislike(this)">
+                    <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px; transform: rotate(180deg);" alt="点踩">
+                    <span>4</span>
+                  </div>
+                  <span class="bullet-badge bullet-badge-controversial">⚡ 争议</span>
+                </div>
+              </div>
+              
+              <!-- 更多普通评论 -->
+              <div class="bullet-comment bullet-comment-normal">
+                <span class="bullet-text"><span class="bullet-username">吴**</span>：我们这届委员每月200津贴，是街道后来加的</span>
+                <div class="bullet-actions">
+                  <div class="bullet-like" onclick="bulletToggleLike(this)">
+                    <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px;" alt="点赞">
+                    <span>6</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="bullet-comment bullet-comment-normal">
+                <span class="bullet-text"><span class="bullet-username">元**</span>：冲着补贴报名的，个人素质能力往往达不到要求</span>
+                <div class="bullet-actions">
+                  <div class="bullet-like" onclick="bulletToggleLike(this)">
+                    <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px;" alt="点赞">
+                    <span>11</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="bullet-comment bullet-comment-normal">
+                <span class="bullet-text"><span class="bullet-username">章**</span>：希望听听阳光共治实践中遇到的阻力及解决方法</span>
+                <div class="bullet-actions">
+                  <div class="bullet-like" onclick="bulletToggleLike(this)">
+                    <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px;" alt="点赞">
+                    <span>7</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+          
+          // 显示恢复后的内容
+          bulletCommentsSection.style.opacity = '0';
+          bulletCommentsSection.style.transform = 'translateY(-10px)';
+          
+          setTimeout(() => {
+            bulletCommentsSection.style.transition = 'all 0.3s ease';
+            bulletCommentsSection.style.opacity = '1';
+            bulletCommentsSection.style.transform = 'translateY(0)';
+          }, 10);
+          
+          // 恢复按钮状态
+          btn.querySelector('span').textContent = '一键分析评论';
+          aiIcon.style.display = 'inline-block';
+          backIcon.style.display = 'none';
+        }, 300);
+      }
+    }
+
+    // AI速览切换功能
+    function toggleAISummary() {
+      const aiComment = document.getElementById('ai-assistant-comment');
+      const toggleBtn = document.getElementById('ai-summary-toggle-btn');
+      const discussionSection = document.querySelector('.discussion-section');
+      const allComments = discussionSection.querySelectorAll('.comment-item:not(#ai-assistant-comment)');
+      
+      if (aiComment.style.display === 'none') {
+        // 显示AI速览，隐藏其他评论
+        aiComment.style.display = 'block';
+        allComments.forEach(comment => {
+          comment.style.display = 'none';
+        });
+        toggleBtn.innerHTML = '<i class="fas fa-comments" style="margin-right: 4px;"></i>返回评论区';
+      } else {
+        // 隐藏AI速览，显示其他评论
+        aiComment.style.display = 'none';
+        allComments.forEach(comment => {
+          comment.style.display = 'block';
+        });
+        toggleBtn.innerHTML = '<img src="assets/lficon/ailogo.svg" style="width: 20px; height: 20px; margin-right: 4px;" alt="AI">AI速览';
+      }
+    }
+    
+    // AI速览卡片收起展开功能
+    function toggleAIOverview() {
+      const detailsSection = document.getElementById('ai-overview-details');
+      const expandBtn = document.getElementById('ai-overview-expand-btn');
+      const expandIcon = expandBtn.querySelector('.expand-icon');
+      const gradientLayer = document.getElementById('ai-overview-gradient');
+      
+      // 检查当前状态：如果隐藏或者没有设置display属性，则认为是收起状态
+      const isHidden = detailsSection.style.display === 'none' || detailsSection.style.display === '';
+      
+      if (isHidden) {
+        // 展开详细信息
+        detailsSection.style.display = 'block';
+        // 使用transform旋转箭头，确保方向正确
+        expandIcon.style.transform = 'rotate(180deg)';
+        expandBtn.classList.add('expanded');
+        gradientLayer.style.display = 'none';
+      } else {
+        // 收起详细信息
+        detailsSection.style.display = 'none';
+        // 恢复箭头原始方向
+        expandIcon.style.transform = 'rotate(0deg)';
+        expandBtn.classList.remove('expanded');
+        gradientLayer.style.display = 'block';
+      }
+    }
+    
+    /**
+     * AI速览刷新功能
+     * 点击刷新按钮后更新显示时间
+     */
+    function refreshAISummary() {
+      const refreshStatus = document.getElementById('refresh-status');
+      const now = new Date();
+      
+      // 格式化时间为 HH:MM 格式
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      const timeString = `${hours}:${minutes}`;
+      
+      // 更新显示文本为具体刷新时间
+      if (refreshStatus) {
+        refreshStatus.textContent = `刷新于 ${timeString}`;
+      }
+      
+      // 可以在这里添加实际的AI数据刷新逻辑
+      console.log('AI速览已刷新，时间：', timeString);
+    }
+    
+    // 页面加载时初始化
+     window.addEventListener('DOMContentLoaded', function() {
+       const aiComment = document.getElementById('ai-assistant-comment');
+       if (aiComment) {
+         aiComment.style.display = 'none';
+       }
+       
+       // 初始化bullet-comments动画
+       initBulletCommentsAnimation();
+     });
+     
+    // Bullet Comments 动态效果
+    function initBulletCommentsAnimation() {
+      const bulletComments = document.querySelectorAll('.bullet-comment');
+      
+      // 为每个评论添加延迟动画
+      bulletComments.forEach((comment, index) => {
+        comment.style.animationDelay = `${index * 0.1}s`;
+      });
+    }
+    
+    // 模拟新评论动态添加
+    function addNewBulletComment(text, type = 'normal') {
+      const bulletList = document.querySelector('.bullet-comments-list');
+      const newComment = document.createElement('div');
+      newComment.className = `bullet-comment bullet-comment-${type}`;
+      
+      // 根据评论类型决定显示的按钮
+      let actionsHTML = '';
+      if (type === 'controversial') {
+        // 争议评论只显示点踩按钮
+        actionsHTML = `
+          <div class="bullet-dislike" onclick="bulletToggleDislike(this)">
+            <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px; transform: rotate(180deg);" alt="点踩">
+            <span>0</span>
+          </div>
+          <span class="bullet-badge bullet-badge-controversial"><i class="fas fa-bolt"></i> 争议</span>
+        `;
+      } else {
+        // 其他类型显示点赞按钮
+        actionsHTML = `
+          <div class="bullet-like" onclick="bulletToggleLike(this)">
+            <img src="assets/lficon/thumbs-up-outline.svg" style="width: 14px; height: 14px;" alt="点赞">
+            <span>0</span>
+          </div>
+        `;
+        
+        // 为特殊类型添加标签
+        if (type === 'hot') {
+          actionsHTML += '<span class="bullet-badge bullet-badge-hot"><i class="fas fa-fire"></i> 热门</span>';
+        } else if (type === 'quality') {
+          actionsHTML += '<span class="bullet-badge bullet-badge-quality"><i class="fas fa-gem"></i> 优质</span>';
+        }
+      }
+      
+      // 使用真实用户名列表
+      const realUsernames = ['李小明', '孙工程师', '赵女士', '周业主', '钱租户', '张业主', '业委会老李'];
+      const randomUsername = realUsernames[Math.floor(Math.random() * realUsernames.length)];
+      
+      newComment.innerHTML = `
+        <span class="bullet-text"><span class="bullet-username">${randomUsername}</span>：${text}</span>
+        <div class="bullet-actions">
+          ${actionsHTML}
+        </div>
+      `;
+      
+      // 添加进入动画
+      newComment.style.opacity = '0';
+      newComment.style.transform = 'translateY(20px)';
+      bulletList.appendChild(newComment);
+      
+      // 触发动画
+      setTimeout(() => {
+        newComment.style.transition = 'all 0.3s ease-out';
+        newComment.style.opacity = '1';
+        newComment.style.transform = 'translateY(0)';
+      }, 100);
+      
+      // 更新评论数量
+      updateCommentCount();
+    }
+    
+    // 更新评论数量
+    function updateCommentCount() {
+      const countElement = document.querySelector('.bullet-comments-count .count-number');
+      const currentCount = parseInt(countElement.textContent);
+      countElement.textContent = currentCount + 1;
+    }
+     
+    // 切换详细分析内容显示
+    function toggleDetailedAnalysis() {
+      const detailedAnalysis = document.getElementById('detailed-analysis');
+      const expandBtn = document.querySelector('.expand-replies-btn');
+      const expandText = expandBtn.querySelector('.expand-text');
+      const aiIcon = expandBtn.querySelector('.ai-icon');
+      const backIcon = expandBtn.querySelector('.back-icon');
+      
+      if (detailedAnalysis.style.display === 'none' || detailedAnalysis.style.display === '') {
+        // 显示详细分析
+        detailedAnalysis.style.display = 'block';
+        expandText.textContent = '返回评论区';
+        aiIcon.style.display = 'none';
+        backIcon.style.display = 'inline-block';
+      } else {
+        // 隐藏详细分析
+        detailedAnalysis.style.display = 'none';
+        expandText.textContent = '一键分析评论';
+        aiIcon.style.display = 'inline-block';
+        backIcon.style.display = 'none';
+      }
+    }
+    
+
+    
+    /**
+     * 初始化Tabs组件的键盘导航功能
+     * 支持左右箭头键切换tab，符合ARIA标准
+     */
+    function initTabsKeyboardNavigation() {
+      const tabsList = document.querySelector('.tabs-list');
+      const triggers = tabsList.querySelectorAll('.tabs-trigger');
+      
+      triggers.forEach((trigger, index) => {
+        trigger.addEventListener('keydown', (e) => {
+          let nextIndex;
+          
+          switch (e.key) {
+            case 'ArrowLeft':
+              e.preventDefault();
+              nextIndex = index === 0 ? triggers.length - 1 : index - 1;
+              triggers[nextIndex].focus();
+              break;
+            case 'ArrowRight':
+              e.preventDefault();
+              nextIndex = index === triggers.length - 1 ? 0 : index + 1;
+              triggers[nextIndex].focus();
+              break;
+            case 'Home':
+              e.preventDefault();
+              triggers[0].focus();
+              break;
+            case 'End':
+              e.preventDefault();
+              triggers[triggers.length - 1].focus();
+              break;
+            case 'Enter':
+            case ' ':
+              e.preventDefault();
+              trigger.click();
+              break;
+          }
+        });
+      });
+    }
+    
+    /**
+     * 跳转到讨论详情页面
+     * 点击"查看详情评论"时调用此函数
+     */
+    function navigateToDiscussionDetail() {
+      // 添加点击反馈效果
+      const clickedElement = event.target.closest('.bullet-comments-count');
+      if (clickedElement) {
+        clickedElement.style.transform = 'scale(0.95)';
+        clickedElement.style.opacity = '0.8';
+        
+        setTimeout(() => {
+          clickedElement.style.transform = 'scale(1)';
+          clickedElement.style.opacity = '1';
+        }, 150);
+      }
+      
+      // 这里可以根据实际需求跳转到具体的讨论详情页面
+      // 示例：跳转到讨论详情页面（需要根据实际页面路径调整）
+      // window.location.href = 'discussion-detail.html';
+      
+      // 或者在当前页面显示更详细的评论内容
+      console.log('跳转到讨论详情页面');
+      alert('功能开发中：将跳转到完整的讨论详情页面');
+    }
+    
+    /**
+     * 显示更多选项菜单
+     * 微信小程序胶囊按钮 - 更多功能
+     */
+    function showMoreOptions() {
+      // 创建选项菜单
+      const options = [
+        { text: '分享给朋友', icon: 'fas fa-share', action: () => shareToFriend() },
+        { text: '收藏', icon: 'fas fa-star', action: () => addToFavorites() },
+        { text: '举报', icon: 'fas fa-flag', action: () => reportContent() },
+        { text: '设置', icon: 'fas fa-cog', action: () => openSettings() }
+      ];
+      
+      // 显示选项菜单（这里可以实现一个弹出菜单）
+      const menuText = options.map(opt => opt.text).join('\n');
+      const choice = prompt('请选择操作：\n' + menuText);
+      
+      const selectedOption = options.find(opt => opt.text === choice);
+      if (selectedOption) {
+        selectedOption.action();
+      }
+    }
+    
+    /**
+     * 关闭应用
+     * 微信小程序胶囊按钮 - 关闭功能
+     */
+    function closeApp() {
+      if (confirm('确定要关闭当前页面吗？')) {
+        // 在微信小程序中，这里会调用 wx.navigateBack() 或 wx.exitMiniProgram()
+        // 在网页中，我们使用 window.close() 或返回上一页
+        if (window.history.length > 1) {
+          window.history.back();
+        } else {
+          window.close();
+        }
+      }
+    }
+    
+    /**
+     * 分享给朋友功能
+     */
+    function shareToFriend() {
+      // 在实际微信小程序中，这里会调用 wx.shareAppMessage()
+      if (navigator.share) {
+        navigator.share({
+          title: '业主委员会津贴标准与权责分配讨论',
+          text: '参与社区议事，共建美好家园',
+          url: window.location.href
+        });
+      } else {
+        // 复制链接到剪贴板
+        navigator.clipboard.writeText(window.location.href).then(() => {
+          alert('链接已复制到剪贴板');
+        });
+      }
+    }
+    
+    /**
+     * 添加到收藏功能
+     */
+    function addToFavorites() {
+      // 在实际应用中，这里会保存到用户的收藏列表
+      const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+      const currentPage = {
+        title: '业主委员会津贴标准与权责分配讨论',
+        url: window.location.href,
+        timestamp: Date.now()
+      };
+      
+      if (!favorites.find(item => item.url === currentPage.url)) {
+        favorites.push(currentPage);
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+        alert('已添加到收藏');
+      } else {
+        alert('已经在收藏中了');
+      }
+    }
+    
+    /**
+     * 举报内容功能
+     */
+    function reportContent() {
+      const reason = prompt('请输入举报原因：');
+      if (reason && reason.trim()) {
+        // 在实际应用中，这里会发送举报信息到服务器
+        console.log('举报原因：', reason);
+        alert('举报已提交，感谢您的反馈');
+      }
+    }
+    
+    /**
+     * 打开设置页面
+     */
+    function openSettings() {
+      alert('设置功能开发中');
+    }
+    
+    // 页面加载完成后初始化键盘导航
+    document.addEventListener('DOMContentLoaded', function() {
+      initTabsKeyboardNavigation();
+    });
+  </script>
+
+  <!-- 底部固定评论框 -->
+  <div id="bottom-comment-box" style="position: fixed; bottom: 0; left: 0; right: 0; background: white; border-top: 1px solid #E5E7EB; padding: 8px 16px; z-index: 9999; box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1); padding-bottom: calc(8px + env(safe-area-inset-bottom)); transform: translateZ(0); will-change: transform; backface-visibility: hidden;">
+    <div style="display: flex; align-items: center; gap: 8px; max-width: 100%; margin: 0 auto;">
+      <!-- 评论输入框容器 -->
+      <div style="flex: 1; position: relative; display: flex; align-items: center;">
+        <!-- 评论输入框 -->
+        <textarea id="comment-input" placeholder="说点什么吧~" style="width: 100%; min-height: 16px; max-height: 40px; padding: 6px 36px 6px 12px; border: 1px solid #E5E7EB; border-radius: 16px; resize: none; font-size: 14px; line-height: 1.4; background: #F9FAFB; outline: none; transition: all 0.2s ease; box-sizing: border-box; font-family: 'PingFang SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;" oninput="adjustTextareaHeight(this)" onfocus="this.style.borderColor='#0052D9'; this.style.background='white';" onblur="this.style.borderColor='#E5E7EB'; this.style.background='#F9FAFB';"></textarea>
+        
+        <!-- 图片上传按钮（在输入框内部右侧） -->
+        <button onclick="selectImage()" style="background: none; border: none; padding: 6px; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; cursor: pointer; position: absolute; right: 4px; z-index: 1; border-radius: 4px;" onmouseover="this.style.background='#F3F4F6'" onmouseout="this.style.background='none'">
+          <img src="assets/lficon/Image.svg" style="width: 16px; height: 16px; filter: brightness(0) saturate(100%) invert(45%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(95%) contrast(95%);" alt="添加图片">
+        </button>
+      </div>
+      
+      <!-- 发送按钮 -->
+      <button onclick="sendComment()" style="background: none; border: none; padding: 6px; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; cursor: pointer; border-radius: 4px;" onmouseover="this.style.background='#F3F4F6'" onmouseout="this.style.background='none'">
+        <img src="assets/lficon/send.svg" style="width: 18px; height: 18px;" alt="发送">
+      </button>
+    </div>
+  </div>
+
+  <script>
+    /**
+     * 自动调整文本框高度
+     * @param {HTMLTextAreaElement} textarea - 文本框元素
+     */
+    function adjustTextareaHeight(textarea) {
+      textarea.style.height = 'auto';
+      textarea.style.height = Math.min(textarea.scrollHeight, 120) + 'px';
+    }
+    
+    /**
+     * 选择图片功能
+     */
+    function selectImage() {
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.accept = 'image/*';
+      input.onchange = function(e) {
+        const file = e.target.files[0];
+        if (file) {
+          // 在实际应用中，这里会上传图片到服务器
+          console.log('选择的图片：', file.name);
+          alert('图片选择成功：' + file.name);
+        }
+      };
+      input.click();
+    }
+    
+    /**
+     * 发送评论功能
+     */
+    function sendComment() {
+      const textarea = document.getElementById('comment-input');
+      const content = textarea.value.trim();
+      
+      if (!content) {
+        alert('请输入评论内容');
+        return;
+      }
+      
+      // 在实际应用中，这里会发送评论到服务器
+      console.log('发送评论：', content);
+      
+      // 模拟发送成功
+      alert('评论发送成功');
+      
+      // 清空输入框
+      textarea.value = '';
+      textarea.style.height = 'auto';
+    }
+    
+    // 为页面主体添加底部间距，避免被评论框遮挡
+    document.addEventListener('DOMContentLoaded', function() {
+      const body = document.body;
+      body.style.paddingBottom = '60px';
+    });
+  </script>
+
+</body>
+</html>

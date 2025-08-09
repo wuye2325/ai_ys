@@ -1,0 +1,200 @@
+{
+  "comments": [
+    {
+      "id": "comment-001",
+      "author": {
+        "name": "张**",
+        "avatar": "assets/lficon/avatar-male-1.svg"
+      },
+      "content": "津贴制度的费用会不会太高？建议先试点一年看看效果，如果业委会工作质量确实提高了，再考虑长期实施。",
+      "timestamp": "2025-05-21 18:20",
+      "likes": 3,
+      "dislikes": 1,
+      "replies": [],
+      "type": "normal",
+      "isAI": false
+    },
+    {
+      "id": "comment-002",
+      "author": {
+        "name": "赵**",
+        "avatar": "assets/lficon/avatar-elder-male.svg"
+      },
+      "content": "业委会工作确实需要专业知识，特别是财务管理和法律方面。如果给津贴，是否也应该对业委会成员的专业能力有一定要求？",
+      "timestamp": "2025-05-21 16:45",
+      "likes": 8,
+      "dislikes": 0,
+      "replies": [],
+      "type": "normal",
+      "isAI": false
+    },
+    {
+      "id": "comment-003",
+      "author": {
+        "name": "孙**",
+        "avatar": "assets/lficon/avatar-female-1.svg"
+      },
+      "content": "透明度很重要！建议业委会的所有决策和财务支出都要公开，让业主能够随时查看。这样既能监督业委会，也能增加业主的信任度。",
+      "timestamp": "2025-05-21 17:15",
+      "likes": 15,
+      "dislikes": 0,
+      "replies": [],
+      "type": "normal",
+      "isAI": false
+    },
+    {
+      "id": "comment-004",
+      "author": {
+        "name": "周**",
+        "avatar": "assets/lficon/avatar-young-male.svg"
+      },
+      "content": "我觉得可以先在我们小区试点这个津贴制度，看看实际效果如何。如果确实能提高业委会的工作效率和质量，再推广到其他小区。",
+      "timestamp": "2025-05-21 19:30",
+      "likes": 6,
+      "dislikes": 2,
+      "replies": [],
+      "type": "normal",
+      "isAI": false
+    },
+    {
+      "id": "comment-005",
+      "author": {
+        "name": "吴**",
+        "avatar": "assets/lficon/avatar-female-2.svg"
+      },
+      "content": "津贴制度需要有法律依据吗？我担心如果没有明确的法律支持，可能会引起争议。建议先咨询一下相关的法律专家。",
+      "timestamp": "2025-05-21 20:10",
+      "likes": 9,
+      "dislikes": 1,
+      "replies": [],
+      "type": "normal",
+      "isAI": false
+    },
+    {
+      "id": "comment-006",
+      "author": {
+        "name": "包**",
+        "avatar": "assets/lficon/avatar-male-2.svg"
+      },
+      "content": "何老师的视频看过，今日发言报个到。想探讨一个问题，业委会属于自治组织，居委会或村委会也属于自治组织，居委会委员可以拿补贴，业委会委员不拿补贴，这个感觉有点不符人性。上海市的业主大会议事规则示范文本有关于补贴一栏的描述，那么这一栏怎么写。",
+      "timestamp": "2025-05-21 09:01",
+      "likes": 15,
+      "dislikes": 2,
+      "replies": [],
+      "type": "normal",
+      "isAI": false
+    },
+    {
+      "id": "comment-007",
+      "author": {
+        "name": "何**",
+        "avatar": "assets/lficon/avatar-young-female.svg"
+      },
+      "content": "不给补贴本身就是想筛选对物质和权力没有诉求的业主来保管权力。阳光共治是让任何业主只要想要监督都有权来监督，而不是用少数人监督少数人。想让人使用权力和想找人保管权力是两套不同的逻辑。",
+      "timestamp": "2025-05-21 11:20",
+      "likes": 22,
+      "dislikes": 3,
+      "replies": [
+        {
+          "id": "reply-001",
+          "author": {
+            "name": "元**",
+            "avatar": "assets/lficon/avatar-male-1.svg"
+          },
+          "content": "回复@何** 阳光共治确实是个好思路，让更多业主参与监督，这样可以避免权力集中的问题。",
+          "timestamp": "2025-05-21 11:35",
+          "likes": 7,
+          "dislikes": 0,
+          "parentId": "comment-007",
+          "mentionedUser": "何**"
+        },
+        {
+          "id": "reply-002",
+          "author": {
+            "name": "鱼**",
+            "avatar": "assets/lficon/avatar-female-1.svg"
+          },
+          "content": "回复@何** 现在的业委会确实需要更多监督，阳光共治可以让决策过程更透明，避免暗箱操作。",
+          "timestamp": "2025-05-21 12:05",
+          "likes": 12,
+          "dislikes": 0,
+          "parentId": "comment-007",
+          "mentionedUser": "何**"
+        }
+      ],
+      "type": "hot",
+      "isAI": false
+    },
+    {
+      "id": "comment-008",
+      "author": {
+        "name": "章**",
+        "avatar": "assets/lficon/avatar-elder-male.svg"
+      },
+      "content": "阳光共治听起来很理想，但实际操作中可能会遇到问题。比如业主参与度不高、专业知识不足等。建议先从简单的监督开始，逐步完善制度。津贴问题可以作为试点，看看效果如何。",
+      "timestamp": "2025-05-21 15:30",
+      "likes": 18,
+      "dislikes": 0,
+      "replies": [],
+      "type": "quality",
+      "isAI": false
+    },
+    {
+      "id": "comment-009",
+      "author": {
+        "name": "李**",
+        "avatar": "assets/lficon/avatar-young-male.svg"
+      },
+      "content": "回复@章** 确实，理想和现实总有差距。不过可以先从津贴制度开始试点，看看业主的参与度如何。",
+      "timestamp": "2025-05-21 16:10",
+      "likes": 5,
+      "dislikes": 0,
+      "replies": [],
+      "type": "normal",
+      "isAI": false,
+      "mentionedUser": "章**"
+    },
+    {
+      "id": "comment-010",
+      "author": {
+        "name": "王**",
+        "avatar": "assets/lficon/avatar-male-2.svg"
+      },
+      "content": "我觉得现在的业委会制度就挺好的，为什么要搞这么复杂？给津贴反而可能引来一些不合适的人，纯粹为了钱来当委员。",
+      "timestamp": "2025-05-21 16:45",
+      "likes": 4,
+      "dislikes": 8,
+      "replies": [
+        {
+          "id": "reply-003",
+          "author": {
+            "name": "刘**",
+            "avatar": "assets/lficon/avatar-female-2.svg"
+          },
+          "content": "回复@王** 但是现在很多有能力的业主都不愿意参与，可能就是因为完全没有任何回报。适当的津贴可以吸引更多人才。",
+          "timestamp": "2025-05-21 17:20",
+          "likes": 12,
+          "dislikes": 1,
+          "parentId": "comment-010",
+          "mentionedUser": "王**"
+        }
+      ],
+      "type": "controversial",
+      "isAI": false
+    },
+    {
+      "id": "comment-011",
+      "author": {
+        "name": "陈**",
+        "avatar": "assets/lficon/avatar-young-female.svg"
+      },
+      "content": "我们小区业委会工作确实很辛苦，经常要处理各种纠纷和问题。如果有适当的津贴，可能会有更多业主愿意参与。关键是要透明公开，让大家知道钱怎么花的。",
+      "timestamp": "2025-05-21 17:45",
+      "likes": 9,
+      "dislikes": 1,
+      "replies": [],
+      "type": "normal",
+      "isAI": false
+    }
+  ]
+}

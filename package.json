@@ -1,0 +1,21 @@
+{
+  "name": "html-refactoring-project",
+  "version": "1.0.0",
+  "description": "Refactoring monolithic HTML into modular components",
+  "main": "index.html",
+  "scripts": {
+    "start": "node server.js",
+    "serve": "node server.js --port 3000",
+    "dev": "node build/build.js dev",
+    "build": "node build/build.js build",
+    "build:prod": "node build/build.js prod",
+    "help": "node build/build.js help"
+  },
+  "keywords": ["html", "refactoring", "components", "modular"],
+  "author": "Developer",
+  "license": "MIT",
+  "devDependencies": {},
+  "engines": {
+    "node": ">=12.0.0"
+  }
+}

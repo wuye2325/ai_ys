@@ -1,0 +1,105 @@
+/* TDesign设计系统变量 */
+:root {
+    /* TDesign品牌色系 */
+    --td-brand-color: #0052D9;
+    --td-brand-color-light: #EBF3FF;
+    --td-brand-color-hover: #266FE8;
+    --td-brand-color-active: #0034B5;
+    
+    /* TDesign文本色系 */
+    --td-text-color-primary: #000000;
+    --td-text-color-secondary: #666666;
+    --td-text-color-placeholder: #BBBBBB;
+    --td-text-color-disabled: #CCCCCC;
+    
+    /* TDesign背景色系 */
+    --td-bg-color-page: #F5F5F5;
+    --td-bg-color-container: #FFFFFF;
+    --td-bg-color-container-hover: #F8F8F8;
+    --td-bg-color-container-active: #F0F0F0;
+    
+    /* TDesign边框色系 */
+    --td-border-color: #E7E7E7;
+    --td-border-color-hover: #CCCCCC;
+    
+    /* TDesign阴影系统 */
+    --td-shadow-1: 0 1px 10px rgba(0, 0, 0, 0.05);
+    --td-shadow-2: 0 2px 20px rgba(0, 0, 0, 0.1);
+    --td-shadow-3: 0 8px 40px rgba(0, 0, 0, 0.12);
+    
+    /* TDesign圆角系统 */
+    --td-radius-default: 6px;
+    --td-radius-round: 999px;
+    
+    /* TDesign字体系统 */
+    --td-font-size-s: 12px;
+    --td-font-size-base: 14px;
+    --td-font-size-m: 16px;
+    --td-font-size-l: 18px;
+    --td-font-size-xl: 20px;
+    
+    /* TDesign间距系统 */
+    --td-spacing-xs: 4px;
+    --td-spacing-s: 8px;
+    --td-spacing-m: 12px;
+    --td-spacing-l: 16px;
+    --td-spacing-xl: 24px;
+    --td-spacing-xxl: 32px;
+    
+    /* TDesign动画系统 */
+    --td-transition-fast: 150ms ease;
+    --td-transition-normal: 250ms ease;
+    --td-transition-slow: 350ms ease;
+    
+    /* TDesign过渡动画 */
+    --td-transition-fast: all 0.2s cubic-bezier(0.38, 0, 0.24, 1);
+    --td-transition-medium: all 0.3s cubic-bezier(0.38, 0, 0.24, 1);
+    --td-transition-slow: all 0.5s cubic-bezier(0.38, 0, 0.24, 1);
+    
+    /* TDesign交互状态 */
+    --td-hover-opacity: 0.8;
+    --td-active-scale: 0.95;
+    --td-focus-outline: 2px solid var(--td-brand-color-focus);
+    
+    /* TDesign层级 */
+    --td-z-index-navbar: 1000;
+    --td-z-index-modal: 2000;
+    --td-z-index-toast: 3000;
+    
+    /* 兼容性变量 - 保持向后兼容 */
+    --primary-color: var(--td-brand-color);
+    --primary-light: var(--td-brand-color-light);
+    --text-primary: var(--td-text-color-primary);
+    --text-secondary: var(--td-text-color-secondary);
+    --text-tertiary: var(--td-text-color-placeholder);
+    --bg-primary: var(--td-bg-color-container);
+    --bg-light: var(--td-bg-color-page);
+    --bg-card: var(--td-bg-color-container);
+    --border-color: var(--td-border-color);
+    --shadow-sm: var(--td-shadow-1);
+    --shadow-md: var(--td-shadow-2);
+    --shadow-lg: var(--td-shadow-3);
+    --radius-sm: var(--td-radius-default);
+    --radius-md: var(--td-radius-default);
+    --radius-lg: var(--td-radius-default);
+    --spacing-xs: var(--td-spacing-xs);
+    --spacing-sm: var(--td-spacing-s);
+    --spacing-md: var(--td-spacing-l);
+    --spacing-lg: var(--td-spacing-xl);
+    --spacing-xl: var(--td-spacing-xxl);
+    --transition-fast: var(--td-transition-fast);
+    --transition-normal: var(--td-transition-normal);
+    --transition-slow: var(--td-transition-slow);
+    
+    /* 其他颜色 */
+    --success-color: #00A870;
+    --warning-color: #ED7B2F;
+    --error-color: #E34D59;
+    --danger-color: #E34D59;
+    --error-light: rgba(227, 77, 89, 0.1);
+    --primary-gradient: linear-gradient(135deg, var(--td-brand-color) 0%, var(--td-brand-color-hover) 100%);
+    
+    /* 字体系统 */
+    --font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-family-serif: 'Noto Serif SC', Georgia, serif;
+}
