@@ -1,0 +1,26 @@
+/* Topic Info Component Styles */
+
+/* Styles for this component are largely covered by existing utility classes.
+   This file is for any specific overrides or component-only styles. */
+
+.topic-title {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.25;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+}
+
+.topic-title-text {
+    flex: 1;
+    word-break: break-word;
+}
+
+.topic-status-badge {
+    flex-shrink: 0;
+    font-size: 12px;
+    font-weight: 600;
+}

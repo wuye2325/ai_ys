@@ -3,6 +3,10 @@
  * Central system for loading and managing all components
  */
 
+// Import side-effect modules to ensure they are loaded and initialized
+import './logger.js';
+import './error-handler.js';
+
 import { showFeedback } from './utils.js';
 import { loadAndRenderAllContent } from './data-manager.js';
 
@@ -17,31 +21,31 @@ const componentRegistry = new Map();
 const COMPONENTS = {
   navbar: {
     containerId: 'navbar-container',
-    htmlPath: './components/navbar/navbar.html',
-    cssPath: './components/navbar/navbar.css',
-    jsPath: './components/navbar/navbar.js',
+    htmlPath: '../../components/navbar/navbar.html',
+    cssPath: '../../components/navbar/navbar.css',
+    jsPath: '../../components/navbar/navbar.js',
     required: true
   },
-  discussion: {
-    containerId: 'discussion-container',
-    htmlPath: './components/discussion/discussion-section.html',
-    cssPath: './components/discussion/discussion-section.css',
-    jsPath: './components/discussion/discussion-section.js',
-    required: true
-  },
-  comments: {
-    containerId: 'comments-container',
-    htmlPath: './components/comments/comment-list.html',
-    cssPath: './components/comments/comments.css',
-    jsPath: './components/comments/comments.js',
+  topicInfo: {
+    containerId: 'topic-info-container',
+    htmlPath: '../../components/topic-info/topic-info.html',
+    cssPath: '../../components/topic-info/topic-info.css',
+    jsPath: '../../components/topic-info/topic-info.js',
     required: true
   },
   aiAssistant: {
     containerId: 'ai-assistant-container',
-    htmlPath: './components/ai-assistant/ai-panel.html',
-    cssPath: './components/ai-assistant/ai-panel.css',
-    jsPath: './components/ai-assistant/ai-panel.js',
+    htmlPath: '../../components/ai-assistant/ai-assistant.html',
+    cssPath: '../../components/ai-assistant/ai-assistant.css',
+    jsPath: '../../components/ai-assistant/ai-assistant.js',
     required: false
+  },
+  discussion: {
+    containerId: 'discussion-container',
+    htmlPath: '../../components/discussion/discussion-section.html',
+    cssPath: '../../components/discussion/discussion-section.css',
+    jsPath: '../../components/discussion/discussion-section.js',
+    required: true
   }
 };
 
@@ -156,11 +160,13 @@ class ComponentLoader {
    * @returns {Promise<boolean>} Success status
    */
   async _loadComponentInternal(name, config) {
+    console.log(`[Debug] Starting to load component: ${name}`);
     return window.ErrorHandler?.safeAsync(async () => {
       window.Logger?.debug('ComponentLoader', `Loading component: ${name}`);
       
       // Check if container exists
       const container = document.getElementById(config.containerId);
+      console.log(`[Debug] Component '${name}': container element is`, container);
       if (!container) {
         if (config.required) {
           throw new Error(`Required container '${config.containerId}' not found for component '${name}'`);
@@ -258,11 +264,15 @@ class ComponentLoader {
    * @returns {Promise<string>} HTML content
    */
   async loadHTML(htmlPath) {
+    console.log(`[Debug] Fetching HTML from: ${htmlPath}`);
     const response = await fetch(htmlPath);
     if (!response.ok) {
+      console.error(`[Debug] Failed to fetch HTML: ${htmlPath}`, response);
       throw new Error(`Failed to load HTML: ${response.status} ${response.statusText}`);
     }
-    return await response.text();
+    const html = await response.text();
+    console.log(`[Debug] Successfully fetched HTML from: ${htmlPath}`);
+    return html;
   }
 
   /**
@@ -273,15 +283,18 @@ class ComponentLoader {
    * @returns {Promise<void>}
    */
   async loadAndInitializeJS(jsPath, componentName, containerId) {
+    console.log(`[Debug] Importing JS module for '${componentName}' from: ${jsPath}`);
     try {
       // Dynamic import of the component module
       const module = await import(jsPath);
+      console.log(`[Debug] JS module imported for '${componentName}':`, module);
       
       // Look for component loader function
       const loaderFunctionName = `load${this.capitalize(componentName)}Component`;
       const loaderFunction = module[loaderFunctionName];
       
       if (typeof loaderFunction === 'function') {
+        console.log(`[Debug] Found loader function '${loaderFunctionName}'. Executing...`);
         // Use the component's own loader function
         const success = await loaderFunction(containerId);
         if (!success) {
@@ -567,7 +580,10 @@ const componentLoader = new ComponentLoader();
 export { ComponentLoader, componentLoader };
 
 // Export convenience functions
-export const initializeComponents = () => componentLoader.init();
+export const initializeComponents = () => {
+  console.log('Initializing components...');
+  return componentLoader.init();
+};
 export const loadComponent = (name, config) => componentLoader.loadComponent(name, config);
 export const reloadComponent = (name) => componentLoader.reloadComponent(name);
 export const reloadAllComponents = () => componentLoader.reloadAllComponents();

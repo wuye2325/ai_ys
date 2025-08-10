@@ -1,0 +1,67 @@
+<!-- AI助手面板 -->
+<div id="ai-assistant-panel" class="ai-panel-card">
+    <div class="ai-panel-header">
+        <div class="ai-icon-container">
+            <i class="fas fa-robot"></i>
+        </div>
+        <div>
+            <div class="ai-panel-title">AI议事助手</div>
+            <div class="ai-subtitle">智能分析 · 实时更新</div>
+        </div>
+        <div id="ai-status" class="ai-status-indicator">
+            <div class="status-dot"></div>
+            <span id="ai-status-text">实时分析中</span>
+        </div>
+    </div>
+
+    <!-- 统计数据 -->
+    <div class="ai-stats-grid">
+        <div class="stat-item">
+            <span id="participant-count" class="stat-value">0</span>
+            <span class="stat-label">参与人</span>
+        </div>
+        <div class="stat-item">
+            <span id="comment-count" class="stat-value">0</span>
+            <span class="stat-label">评论数</span>
+        </div>
+        <div class="stat-item">
+            <span id="quality-score" class="stat-value">0.0</span>
+            <span class="stat-label">质量分</span>
+        </div>
+        <div class="stat-item">
+            <div id="topic-heat" class="heat-indicator">
+                <i class="fas fa-fire"></i>
+                <i class="fas fa-fire"></i>
+                <i class="fas fa-fire"></i>
+                <i class="fas fa-fire inactive"></i>
+                <i class="fas fa-fire inactive"></i>
+            </div>
+            <span class="stat-label">热度 3/5</span>
+        </div>
+    </div>
+
+    <!-- 核心议题标签 -->
+    <div class="ai-tags-section">
+        <div class="ai-tags-title">🏷️ 核心议题</div>
+        <div id="ai-core-tags" class="ai-tags-list">
+            <!-- Tags will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <!-- AI分析简介 -->
+    <div class="ai-summary-box">
+        <div class="ai-summary-header">
+            <i class="fas fa-lightbulb"></i>
+            <span>AI分析</span>
+        </div>
+        <div id="ai-summary-text" class="ai-summary-content">正在加载分析...</div>
+    </div>
+
+    <!-- 查看更多按钮 -->
+    <button id="detailed-analysis-btn" class="ai-analysis-btn">
+        <div class="shimmer-effect"></div>
+        <div class="flowing-border"></div>
+        <img src="assets/lficon/AI%20Generate.svg" class="ai-icon" alt="AI分析">
+        <span class="btn-text">一键分析评论</span>
+    </button>
+</div>

@@ -1,0 +1,60 @@
+<div class="section-card">
+  <!-- 主标题区域 -->
+  <div id="topic-title-placeholder" class="topic-title">
+    <span id="topic-title-text" class="topic-title-text">加载中...</span>
+    <span id="topic-status" class="topic-status-badge status-active"></span>
+  </div>
+  
+  <!-- 元信息区域 -->
+  <div id="topic-meta-placeholder" class="meta-info">
+    <div class="meta-item">
+      <img id="topic-author-avatar" src="" alt="发起人头像" class="avatar-xs">
+      <span id="topic-author-name"></span>
+    </div>
+    <div class="meta-item">
+      <i class="fas fa-clock meta-time-icon"></i>
+      <span id="topic-timestamp"></span>
+    </div>
+  </div>
+
+  <!-- 议题详细信息 -->
+  <div id="topic-details-placeholder" class="topic-details">
+    <div class="topic-detail-item">
+      <span class="topic-detail-label">讨论背景：</span>
+      <span id="topic-background" class="topic-detail-value"></span>
+    </div>
+    <div class="topic-detail-item">
+      <span class="topic-detail-label">核心议题：</span>
+      <span id="topic-core-issue" class="topic-detail-value"></span>
+    </div>
+    <div class="topic-detail-item">
+      <span class="topic-detail-label">争议焦点：</span>
+      <span id="topic-controversy" class="topic-detail-value"></span>
+    </div>
+    <div class="topic-detail-item">
+      <span class="topic-detail-label">关键问题：</span>
+      <span id="topic-key-question" class="topic-detail-value"></span>
+    </div>
+    <div class="topic-detail-item">
+      <span class="topic-detail-label">期待结果：</span>
+      <span id="topic-expected-result" class="topic-detail-value"></span>
+    </div>
+  </div>
+
+  <!-- AI润色提示卡片 -->
+  <div id="ai-polish-card" class="ai-polish-card" style="display: none;">
+    <div class="ai-polish-icon">
+       <img src="assets/lficon/magicpen.svg" alt="魔法笔">
+    </div>
+    <div class="ai-polish-text">
+      <span id="ai-polish-message" class="ai-polish-text-normal"></span>
+      <span class="ai-polish-link" onclick="alert('功能开发中')">你也来试试吧！</span>
+    </div>
+  </div>
+  
+  <!-- 附件 -->
+  <div id="attachments-container" class="attachments-section">
+      <div class="attachments-title">相关附件</div>
+      <div id="figma-attachment-list" class="attachment-list"></div>
+  </div>
+</div>
