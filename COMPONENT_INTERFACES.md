@@ -1,46 +1,46 @@
-# Component Interfaces and Usage Guide
+# 组件接口和使用指南
 
-This document provides detailed information about component interfaces, usage patterns, and integration guidelines for the HTML Refactoring Project.
+本文档提供了关于 HTML 重构项目的组件接口、使用模式和集成指南的详细信息。
 
-## Component Interface Standards
+## 组件接口标准
 
-### Component File Structure
-Each component must follow this structure:
+### 组件文件结构
+每个组件必须遵循以下结构：
 ```
 component-name/
-├── component-name.html    # Template file
-├── component-name.css     # Styles file
-└── component-name.js      # Logic file
+├── component-name.html    # 模板文件
+├── component-name.css     # 样式文件
+└── component-name.js      # 逻辑文件
 ```
 
-### Component Configuration
-Components are configured in `assets/js/main.js`:
+### 组件配置
+组件在 `assets/js/main.js` 中配置：
 
 ```javascript
 const COMPONENTS = {
   componentName: {
-    containerId: 'component-container',     // Required: DOM container ID
-    htmlPath: './components/path/file.html', // Required: HTML template path
-    cssPath: './components/path/file.css',   // Optional: CSS file path
-    jsPath: './components/path/file.js',     // Optional: JS file path
-    required: true                           // Required: Whether component is critical
+    containerId: 'component-container',     // 必需：DOM 容器 ID
+    htmlPath: './components/path/file.html', // 必需：HTML 模板路径
+    cssPath: './components/path/file.css',   // 可选：CSS 文件路径
+    jsPath: './components/path/file.js',     // 可选：JS 文件路径
+    required: true                           // 必需：组件是否关键
   }
 };
 ```
 
-## Component Interfaces
+## 组件接口
 
-### 1. Navbar Component
+### 1. 导航栏组件
 
-#### Purpose
-Provides navigation controls and app-level actions.
+#### 用途
+提供导航控件和应用级操作。
 
-#### Container
+#### 容器
 ```html
 <div id="navbar-container"></div>
 ```
 
-#### Configuration
+#### 配置
 ```javascript
 navbar: {
   containerId: 'navbar-container',
@@ -51,37 +51,37 @@ navbar: {
 }
 ```
 
-#### Public Methods
-- `showMoreOptions()`: Display additional menu options
-- `closeApp()`: Handle app closure
-- `navigateBack()`: Handle back navigation
+#### 公共方法
+- `showMoreOptions()`: 显示更多菜单选项
+- `closeApp()`: 处理应用关闭
+- `navigateBack()`: 处理返回导航
 
-#### Events Dispatched
-- `navbar:optionsShown`: When options menu is displayed
-- `navbar:backPressed`: When back button is pressed
+#### 派发事件
+- `navbar:optionsShown`: 当选项菜单显示时
+- `navbar:backPressed`: 当按下返回按钮时
 
-#### CSS Classes
-- `.navbar`: Main navbar container
-- `.navbar-back`: Back button
-- `.navbar-title`: Title text
-- `.navbar-actions`: Action buttons container
+#### CSS 类
+- `.navbar`: 主导航栏容器
+- `.navbar-back`: 返回按钮
+- `.navbar-title`: 标题文本
+- `.navbar-actions`: 操作按钮容器
 
-#### Fallback Behavior
-Displays basic navigation with essential functions when component fails to load.
+#### 降级行为
+组件加载失败时显示具备基本功能的简单导航。
 
 ---
 
-### 2. Discussion Component
+### 2. 讨论组件
 
-#### Purpose
-Manages discussion section display and comment sorting.
+#### 用途
+管理讨论区显示和评论排序。
 
-#### Container
+#### 容器
 ```html
 <div id="discussion-container"></div>
 ```
 
-#### Configuration
+#### 配置
 ```javascript
 discussion: {
   containerId: 'discussion-container',
@@ -92,41 +92,41 @@ discussion: {
 }
 ```
 
-#### Public Methods
-- `sortComments(criteria)`: Sort comments by specified criteria
-- `toggleView(viewType)`: Switch between different view modes
-- `refreshDiscussion()`: Reload discussion content
+#### 公共方法
+- `sortComments(criteria)`: 按指定条件排序评论
+- `toggleView(viewType)`: 在不同视图模式间切换
+- `refreshDiscussion()`: 重新加载讨论内容
 
-#### Events Dispatched
-- `discussion:sorted`: When comments are sorted
-- `discussion:viewChanged`: When view mode changes
+#### 派发事件
+- `discussion:sorted`: 当评论被排序时
+- `discussion:viewChanged`: 当视图模式更改时
 
-#### CSS Classes
-- `.discussion-section`: Main discussion container
-- `.discussion-header`: Header section
-- `.discussion-actions`: Action buttons
-- `.sort-controls`: Sorting controls
+#### CSS 类
+- `.discussion-section`: 主讨论区容器
+- `.discussion-header`: 头部区域
+- `.discussion-actions`: 操作按钮
+- `.sort-controls`: 排序控件
 
-#### Data Dependencies
-- Requires comment data from `assets/data/comments.json`
-- Integrates with Comments component for display
+#### 数据依赖
+- 需要来自 `assets/data/comments.json` 的评论数据
+- 与评论组件集成以进行显示
 
-#### Fallback Behavior
-Shows simple comment list with basic functionality when component fails.
+#### 降级行为
+组件失败时显示具备基本功能的简单评论列表。
 
 ---
 
-### 3. Comments Component
+### 3. 评论组件
 
-#### Purpose
-Displays and manages individual comments and interactions.
+#### 用途
+显示和管理单个评论及交互。
 
-#### Container
+#### 容器
 ```html
 <div id="comments-container"></div>
 ```
 
-#### Configuration
+#### 配置
 ```javascript
 comments: {
   containerId: 'comments-container',
@@ -137,27 +137,27 @@ comments: {
 }
 ```
 
-#### Public Methods
-- `toggleLike(commentId)`: Toggle like status for comment
-- `toggleDislike(commentId)`: Toggle dislike status for comment
-- `replyComment(commentId)`: Open reply interface
-- `toggleReplies(commentId)`: Show/hide comment replies
-- `sendFlower(commentId)`: Send flower reaction
+#### 公共方法
+- `toggleLike(commentId)`: 切换评论的点赞状态
+- `toggleDislike(commentId)`: 切换评论的点踩状态
+- `replyComment(commentId)`: 打开回复界面
+- `toggleReplies(commentId)`: 显示/隐藏评论回复
+- `sendFlower(commentId)`: 发送鲜花反应
 
-#### Events Dispatched
-- `comment:liked`: When comment is liked
-- `comment:disliked`: When comment is disliked
-- `comment:replied`: When reply is submitted
-- `comment:flowerSent`: When flower is sent
+#### 派发事件
+- `comment:liked`: 当评论被点赞时
+- `comment:disliked`: 当评论被点踩时
+- `comment:replied`: 当提交回复时
+- `comment:flowerSent`: 当发送鲜花时
 
-#### CSS Classes
-- `.comment-item`: Individual comment container
-- `.comment-content`: Comment text content
-- `.comment-actions`: Action buttons
-- `.comment-replies`: Replies container
-- `.comment-author`: Author information
+#### CSS 类
+- `.comment-item`: 单个评论容器
+- `.comment-content`: 评论文本内容
+- `.comment-actions`: 操作按钮
+- `.comment-replies`: 回复容器
+- `.comment-author`: 作者信息
 
-#### Data Structure
+#### 数据结构
 ```javascript
 {
   id: "string",
@@ -174,22 +174,22 @@ comments: {
 }
 ```
 
-#### Fallback Behavior
-Displays read-only comment list when component fails to load.
+#### 降级行为
+组件加载失败时显示只读评论列表。
 
 ---
 
-### 4. AI Assistant Component
+### 4. AI 助手组件
 
-#### Purpose
-Provides AI-powered content analysis and suggestions.
+#### 用途
+提供 AI 驱动的内容分析和建议。
 
-#### Container
+#### 容器
 ```html
 <div id="ai-assistant-container"></div>
 ```
 
-#### Configuration
+#### 配置
 ```javascript
 aiAssistant: {
   containerId: 'ai-assistant-container',
@@ -200,194 +200,194 @@ aiAssistant: {
 }
 ```
 
-#### Public Methods
-- `toggleAIAssistant()`: Show/hide AI panel
-- `updateAIAnalysis()`: Refresh AI analysis
-- `generateSummary()`: Create content summary
-- `provideSuggestions()`: Get AI suggestions
+#### 公共方法
+- `toggleAIAssistant()`: 显示/隐藏 AI 面板
+- `updateAIAnalysis()`: 刷新 AI 分析
+- `generateSummary()`: 创建内容摘要
+- `provideSuggestions()`: 获取 AI 建议
 
-#### Events Dispatched
-- `ai:panelToggled`: When AI panel visibility changes
-- `ai:analysisUpdated`: When analysis is refreshed
-- `ai:summaryGenerated`: When summary is created
+#### 派发事件
+- `ai:panelToggled`: 当 AI 面板可见性更改时
+- `ai:analysisUpdated`: 当分析刷新时
+- `ai:summaryGenerated`: 当摘要创建时
 
-#### CSS Classes
-- `.ai-assistant`: Main AI panel container
-- `.ai-content`: AI-generated content
-- `.ai-controls`: Control buttons
-- `.ai-summary`: Summary section
+#### CSS 类
+- `.ai-assistant`: 主 AI 面板容器
+- `.ai-content`: AI 生成的内容
+- `.ai-controls`: 控制按钮
+- `.ai-summary`: 摘要区域
 
-#### Fallback Behavior
-Hidden when component fails to load (non-critical component).
+#### 降级行为
+组件加载失败时隐藏（非关键组件）。
 
-## Component Loading Lifecycle
+## 组件加载生命周期
 
-### 1. Initialization Phase
+### 1. 初始化阶段
 ```javascript
-// Component loader initialization
+// 组件加载器初始化
 const componentLoader = new ComponentLoader();
 await componentLoader.init();
 ```
 
-### 2. Loading Sequence
-1. **Validation**: Check container existence
-2. **CSS Loading**: Load stylesheets (non-blocking)
-3. **HTML Loading**: Fetch and inject templates
-4. **JS Loading**: Load and execute component logic
-5. **Registration**: Register component in system
-6. **Event Dispatch**: Notify system of completion
+### 2. 加载顺序
+1. **验证**: 检查容器是否存在
+2. **CSS 加载**: 加载样式表（非阻塞）
+3. **HTML 加载**: 获取并注入模板
+4. **JS 加载**: 加载并执行组件逻辑
+5. **注册**: 在系统中注册组件
+6. **事件派发**: 通知系统完成
 
-### 3. Error Handling
+### 3. 错误处理
 ```javascript
-// Automatic error handling with fallbacks
+// 带降级方案的自动错误处理
 try {
   await componentLoader.loadComponent('navbar', config);
 } catch (error) {
-  // Fallback content is automatically provided
-  console.error('Component failed:', error);
+  // 自动提供降级内容
+  console.error('组件失败:', error);
 }
 ```
 
-## Integration Patterns
+## 集成模式
 
-### Component Communication
+### 组件通信
 
-#### Event-Based Communication
+#### 基于事件的通信
 ```javascript
-// Dispatch custom events
+// 派发自定义事件
 document.dispatchEvent(new CustomEvent('component:action', {
   detail: { data: 'value' }
 }));
 
-// Listen for events
+// 监听事件
 document.addEventListener('component:action', (event) => {
-  console.log('Received:', event.detail);
+  console.log('收到:', event.detail);
 });
 ```
 
-#### Direct Method Calls
+#### 直接方法调用
 ```javascript
-// Access component methods via global references
+// 通过全局引用访问组件方法
 if (window.NavbarController) {
   window.NavbarController.showMoreOptions();
 }
 ```
 
-### Data Management
+### 数据管理
 
-#### Loading Data
+#### 加载数据
 ```javascript
-// Use data manager for consistent data loading
+// 使用数据管理器进行一致的数据加载
 import { loadAndRenderAllContent } from './assets/js/data-manager.js';
 
 await loadAndRenderAllContent();
 ```
 
-#### Data Binding
+#### 数据绑定
 ```javascript
-// Bind data to component elements
+// 将数据绑定到组件元素
 function bindCommentData(comment, element) {
   element.querySelector('.comment-author').textContent = comment.author.name;
   element.querySelector('.comment-content').textContent = comment.content;
 }
 ```
 
-### Error Handling Integration
+### 错误处理集成
 
-#### Component-Level Error Handling
+#### 组件级错误处理
 ```javascript
-// Use error handler for consistent error management
+// 使用错误处理器进行一致的错误管理
 window.ErrorHandler?.safeAsync(async () => {
-  // Component operation
+  // 组件操作
 }, 'ComponentName', fallbackValue);
 ```
 
-#### Logging Integration
+#### 日志集成
 ```javascript
-// Use logger for debugging and monitoring
-window.Logger?.info('ComponentName', 'Operation completed');
-window.Logger?.error('ComponentName', 'Operation failed', error);
+// 使用日志记录器进行调试和监控
+window.Logger?.info('ComponentName', '操作完成');
+window.Logger?.error('ComponentName', '操作失败', error);
 ```
 
-## Best Practices
+## 最佳实践
 
-### Component Development
+### 组件开发
 
-1. **Separation of Concerns**
-   - Keep HTML semantic and accessible
-   - Use CSS for styling only
-   - Handle logic in JavaScript
+1. **关注点分离**
+   - 保持 HTML 语义化和可访问性
+   - 仅使用 CSS 进行样式设计
+   - 在 JavaScript 中处理逻辑
 
-2. **Error Resilience**
-   - Always include error handling
-   - Provide meaningful fallbacks
-   - Log errors for debugging
+2. **错误弹性**
+   - 始终包含错误处理
+   - 提供有意义的降级方案
+   - 记录错误以供调试
 
-3. **Performance**
-   - Lazy load non-critical components
-   - Minimize DOM manipulation
-   - Use event delegation
+3. **性能**
+   - 延迟加载非关键组件
+   - 最小化 DOM 操作
+   - 使用事件委托
 
-4. **Accessibility**
-   - Include ARIA attributes
-   - Support keyboard navigation
-   - Provide screen reader support
+4. **可访问性**
+   - 包含 ARIA 属性
+   - 支持键盘导航
+   - 提供屏幕阅读器支持
 
-### Integration Guidelines
+### 集成指南
 
-1. **Consistent Interfaces**
-   - Follow naming conventions
-   - Use standard event patterns
-   - Maintain API consistency
+1. **一致的接口**
+   - 遵循命名约定
+   - 使用标准事件模式
+   - 保持 API 一致性
 
-2. **Graceful Degradation**
-   - Ensure core functionality works without JavaScript
-   - Provide fallback content
-   - Handle missing dependencies
+2. **优雅降级**
+   - 确保无 JavaScript 时核心功能正常工作
+   - 提供降级内容
+   - 处理缺失的依赖项
 
-3. **Testing**
-   - Test component isolation
-   - Verify integration points
-   - Check error scenarios
+3. **测试**
+   - 测试组件隔离
+   - 验证集成点
+   - 检查错误场景
 
-## Debugging and Troubleshooting
+## 调试和故障排除
 
-### Component Status Checking
+### 组件状态检查
 ```javascript
-// Check component loading status
+// 检查组件加载状态
 const stats = window.ComponentLoader.stats();
-console.log('Loaded components:', stats);
+console.log('已加载组件:', stats);
 
-// Check specific component
+// 检查特定组件
 const isLoaded = window.ComponentLoader.instance.isComponentLoaded('navbar');
-console.log('Navbar loaded:', isLoaded);
+console.log('导航栏已加载:', isLoaded);
 ```
 
-### Log Analysis
+### 日志分析
 ```javascript
-// Get component-specific logs
+// 获取组件特定日志
 const logs = window.Logger.getComponentLogs('ComponentName');
-console.log('Component logs:', logs);
+console.log('组件日志:', logs);
 
-// Export all logs
+// 导出所有日志
 const allLogs = window.Logger.exportLogs();
-console.log('All logs:', allLogs);
+console.log('所有日志:', allLogs);
 ```
 
-### Error Recovery
+### 错误恢复
 ```javascript
-// Reload failed component
+// 重新加载失败的组件
 await window.ComponentLoader.instance.reloadComponent('componentName');
 
-// Reload all components
+// 重新加载所有组件
 await window.ComponentLoader.reload();
 ```
 
-## Migration Guide
+## 迁移指南
 
-### Adding New Components
+### 添加新组件
 
-1. **Create Component Files**
+1. **创建组件文件**
    ```bash
    mkdir components/new-component
    touch components/new-component/new-component.html
@@ -395,11 +395,11 @@ await window.ComponentLoader.reload();
    touch components/new-component/new-component.js
    ```
 
-2. **Add Configuration**
+2. **添加配置**
    ```javascript
-   // In assets/js/main.js
+   // 在 assets/js/main.js 中
    const COMPONENTS = {
-     // ... existing components
+     // ... 现有组件
      newComponent: {
        containerId: 'new-component-container',
        htmlPath: './components/new-component/new-component.html',
@@ -410,19 +410,19 @@ await window.ComponentLoader.reload();
    };
    ```
 
-3. **Add Container to HTML**
+3. **在 HTML 中添加容器**
    ```html
-   <!-- In index.html -->
+   <!-- 在 index.html 中 -->
    <div id="new-component-container"></div>
    ```
 
-### Modifying Existing Components
+### 修改现有组件
 
-1. **Update Component Files**: Modify HTML, CSS, or JS as needed
-2. **Test Integration**: Ensure changes don't break other components
-3. **Update Documentation**: Reflect changes in this document
-4. **Test Error Scenarios**: Verify fallback behavior still works
+1. **更新组件文件**: 根据需要修改 HTML、CSS 或 JS
+2. **测试集成**: 确保更改不会破坏其他组件
+3. **更新文档**: 在本文档中反映更改
+4. **测试错误场景**: 验证降级行为仍然有效
 
 ---
 
-This document serves as the definitive guide for component interfaces and integration patterns. Keep it updated as components evolve.
+本文档作为组件接口和集成模式的权威指南。随着组件的演进，请保持文档更新。
